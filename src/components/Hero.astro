@@ -6,8 +6,10 @@
   <div
     class="container mx-auto px-4 flex items-center justify-center h-full relative z-20"
   >
-    <h1 class="text-3xl md:text-5xl font-bold text-shadow text-center title">
-      Nueva web proximamente
+    <h1
+      class="text-3xl md:text-5xl font-bold text-shadow text-center title text-balance"
+    >
+      Nueva web<br />proximamente
     </h1>
   </div>
   <span
@@ -21,13 +23,14 @@
   />
 -->
 
-  <iframe
-    title="vimeo-player"
-    class="image1 h-full w-full object-cover absolute top-0 left-0 z-0 pointer-events-none scale-150"
-    src="https://player.vimeo.com/video/1091248148?h=8c7e509a61&autoplay=1&muted=1&background=1"
-    frameborder="0"
-    allow="autoplay; fullscreen"
-    allowfullscreen></iframe>
+  <div class="fixed top-0 left-0 w-screen h-screen overflow-hidden -z-10">
+    <iframe
+      src="https://player.vimeo.com/video/1091248148?h=8c7e509a61&autoplay=1&muted=1&background=1"
+      class="absolute top-1/2 left-1/2 h-screen w-[177.78vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen></iframe>
+  </div>
 </section>
 
 <script>
@@ -59,6 +62,7 @@
       {
         opacity: 0,
         scale: 1.8,
+        translateY: 100,
       },
       "-=0.5"
     );
