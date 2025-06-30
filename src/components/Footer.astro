@@ -1,0 +1,89 @@
+---
+import logo from "@assets/logo.svg";
+import { getI18N } from "@a18n/index.ts";
+
+const { currentLocale } = Astro;
+const t = getI18N({ currentLocale: currentLocale ?? "es" });
+
+const classes = {
+  link: "hover:text-primary font-semibold",
+};
+
+const column1Links = [
+  { text: t.FOOTER.KNOWUS, href: "#" },
+  { text: t.FOOTER.ABOUT, href: "#" },
+];
+
+const column21Links = [
+  { text: t.FOOTER.SERVICES, href: "#" },
+  { text: t.FOOTER.CONTACT, href: "#" },
+];
+
+const legalLinks = [
+  { text: t.FOOTER.PRIVACY, href: "/privacy" },
+  { text: t.FOOTER.COOKIES, href: "/cookies" },
+  { text: t.FOOTER.CONDITIONS, href: "/conditions" },
+];
+---
+
+<footer class="pt-10 pb-5 mt-auto bg-gray-200">
+  <div
+    class="container mx-auto w-full px-4 flex flex-col md:grid md:grid-cols-4 gap-4 text-center md:text-left"
+  >
+    <figure>
+      <img
+        src={logo.src}
+        alt={`Logotipo de ${t.GLOBAL.OWNER}`}
+        class="mx-auto lg:ml-0 mb-4 w-32"
+      />
+    </figure>
+
+    <nav aria-label="Navegación principal">
+      <ul role="menu" class="space-y-2">
+        {
+          column1Links.map((link) => (
+            <li role="none">
+              <a class:list={classes.link} href={link.href} role="menuitem">
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav aria-label="Navegación secundaria">
+      <ul role="menu" class="space-y-2">
+        {
+          column21Links.map((link) => (
+            <li role="none">
+              <a class:list={classes.link} href={link.href} role="menuitem">
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav aria-label="Enlaces legales">
+      <ul role="menu" class="space-y-2">
+        {
+          legalLinks.map((link) => (
+            <li role="none">
+              <a class:list={classes.link} href={link.href} role="menuitem">
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <small class="col-span-4 mt-12 text-center">
+      {
+        `© ${new Date().getFullYear()} ${t.GLOBAL.OWNER} - ${t.FOOTER.COPYRIGHT}`
+      }
+    </small>
+  </div>
+</footer>

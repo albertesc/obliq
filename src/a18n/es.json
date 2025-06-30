@@ -1,0 +1,23 @@
+{
+    "GLOBAL": {
+        "TITLE": "[TITLE]",
+        "OWNER": "[COMPANY_NAME]"
+    },
+    "MENU": {
+        "ABOUT": "Sobre nosotros",
+        "SERVICES": "Servicios",
+        "CONTACT": "Contacto",
+        "OPEN_MENU": "Abrir menú",
+        "CLOSE_MENU": "Cerrar menú"
+    },
+    "FOOTER": {
+        "KNOWUS": "Conócenos",
+        "ABOUT": "Nuestros valores",
+        "SERVICES": "Servicios",
+        "CONTACT": "Contacto",
+        "PRIVACY": "Política de privacidad",
+        "COOKIES": "Política de cookies",
+        "CONDITIONS": "Condiciones generales",
+        "COPYRIGHT": "Todos los derechos reservados."
+    }
+}

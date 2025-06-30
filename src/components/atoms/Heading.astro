@@ -1,0 +1,21 @@
+---
+interface Props {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+}
+
+const { level = 2 } = Astro.props;
+const Tag = `h${level}`;
+
+const styles = {
+  h1: "text-4xl font-bold mb-4",
+  h2: "text-3xl font-semibold mb-3",
+  h3: "text-2xl font-medium mb-2",
+  h4: "text-xl font-normal mb-1",
+  h5: "text-lg mb-1",
+  h6: "text-base mb-1",
+};
+---
+
+<Tag class:list={[styles[`h${level}`]]}>
+  <slot />
+</Tag>

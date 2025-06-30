@@ -1,0 +1,36 @@
+---
+import Button from "./atoms/Button.astro";
+import Heading from "./atoms/Heading.astro";
+import Input from "./atoms/Input.astro";
+import Paragraph from "./atoms/Paragraph.astro";
+import Textarea from "./atoms/Textarea.astro";
+---
+
+<section
+  class="bg-gray-50 py-10 md:py-16"
+  role="region"
+  aria-labelledby="contact-heading"
+>
+  <div class="container mx-auto px-4">
+    <Heading level={2}>Contacta con nosotros</Heading>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
+      <div class="col-span-12 lg:col-span-5">
+        <Paragraph>
+          Si tienes alguna pregunta o necesitas más información, no dudes en
+          ponerte en contacto con nosotros. Estamos aquí para ayudarte.
+        </Paragraph>
+        <Button tag="a">Saber más</Button>
+      </div>
+      <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+        <form method="POST">
+          <Input label="Nombre*" name="name" required />
+          <Input label="Correo electrónico*" name="email" required />
+          <Input label="Asunto" name="subject" required />
+          <Textarea label="Mensaje" name="message" required />
+          <small class="block mb-6">* Campos obligatorios</small>
+          <Button tag="button">Enviar</Button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

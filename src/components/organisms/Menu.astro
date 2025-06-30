@@ -1,0 +1,68 @@
+---
+import MenuBurger from "@assets/icons/burger.svg";
+import CloseIcon from "@assets/icons/close.svg";
+import { getI18N } from "@a18n/index.ts";
+
+const { currentLocale } = Astro;
+const t = getI18N({ currentLocale: currentLocale ?? "es" });
+
+const menuLinks = [
+  { text: t.MENU.ABOUT, href: "#" },
+  { text: t.MENU.SERVICES, href: "#" },
+  { text: t.MENU.CONTACT, href: "#" },
+];
+
+const classes = {
+  link: "font-semibold hover:text-primary text-xl md:text-base",
+};
+---
+
+<div
+  class="main-menu fixed inset-0 left-0 z-50 bg-white h-full w-full p-8 translate-x-full
+    md:static md:w-auto md:p-0 md:translate-0"
+>
+  <nav area-label="Navegación principal" class="h-full">
+    <ul
+      role="menu"
+      class="flex flex-col gap-4 h-full md:flex-row md:gap-12 md:items-center"
+    >
+      {
+        menuLinks.map((link) => (
+          <li role="none">
+            <a href={link.href} class:list={classes.link} role="menuitem">
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <button
+    class="close-button absolute top-4 right-4 md:hidden"
+    aria-label={t.MENU.CLOSE_MENU}
+  >
+    <span class="sr-only">{t.MENU.CLOSE_MENU}</span>
+    <CloseIcon width={32} height={32} />
+  </button>
+</div>
+
+<button class="burger-menu md:hidden">
+  <span class="sr-only">{t.MENU.OPEN_MENU}</span>
+  <MenuBurger width={32} height={32} />
+</button>
+
+<script>
+  import { gsap } from "gsap";
+  const burgerButton = document.querySelector(".burger-menu");
+  const mainMenu = document.querySelector(".main-menu");
+  const closeButton = document.querySelector(".close-button");
+
+  burgerButton?.addEventListener("click", () => {
+    gsap.to(mainMenu, { x: 0, duration: 0.3, ease: "power2.out" });
+  });
+
+  closeButton?.addEventListener("click", () => {
+    gsap.to(mainMenu, { x: "100%", duration: 0.3, ease: "power2.in" });
+  });
+</script>

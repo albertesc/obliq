@@ -1,0 +1,19 @@
+{
+  "name": "obliq",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "dev:host": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.8",
+    "astro": "^5.9.2",
+    "gsap": "^3.13.0",
+    "tailwindcss": "^4.1.8"
+  }
+}

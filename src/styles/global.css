@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: system-ui, Helvetica, Arial, sans-serif;
+
+  --color-primary: var(--color-blue-600);
+}
