@@ -6,25 +6,24 @@ import { getI18N } from "@a18n/index.ts";
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
 
-const menuLinks = [
-  { text: t.MENU.ABOUT, href: "#" },
-  { text: t.MENU.SERVICES, href: "#" },
-  { text: t.MENU.CONTACT, href: "#" },
-];
+const menuLinks = [{ text: t.MENU.CONTACT, href: "#contact" }];
 
 const classes = {
-  link: "font-semibold hover:text-primary text-xl md:text-base",
+  link: "hover:text-primary text-xl md:text-base uppercase",
 };
 ---
 
 <div
-  class="main-menu fixed inset-0 left-0 z-50 bg-white h-full w-full p-8 translate-x-full
+  class="main-menu fixed inset-0 left-0 z-50 bg-white md:bg-transparent h-full w-full p-8 translate-x-full
     md:static md:w-auto md:p-0 md:translate-0"
 >
-  <nav area-label="Navegación principal" class="h-full">
+  <nav
+    area-label="Navegación principal"
+    class="h-full text-black md:text-white"
+  >
     <ul
       role="menu"
-      class="flex flex-col gap-4 h-full md:flex-row md:gap-12 md:items-center"
+      class="flex flex-col gap-4 h-full md:flex-row md:justify-end md:gap-12 md:items-center"
     >
       {
         menuLinks.map((link) => (
@@ -47,7 +46,7 @@ const classes = {
   </button>
 </div>
 
-<button class="burger-menu md:hidden">
+<button class="burger-menu md:hidden ml-auto">
   <span class="sr-only">{t.MENU.OPEN_MENU}</span>
   <MenuBurger width={32} height={32} />
 </button>

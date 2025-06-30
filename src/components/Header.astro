@@ -7,14 +7,14 @@ const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
 ---
 
-<header class="bg-white fixed top-0 w-full h-16 md:h-20 z-50" role="banner">
-  <div class="container mx-auto flex items-center justify-between h-full px-4">
-    <a href="/" class="logo" aria-label={t.GLOBAL.OWNER}>
-      <img
-        src={Logo.src}
-        alt={`Logotipo de ${t.GLOBAL.OWNER}`}
-        class="w-24 md:w-32"
-      />
+<header class="fixed top-0 w-full h-16 md:h-20 z-50 bg-black" role="banner">
+  <div
+    class="container mx-auto grid grid-cols-[1fr_auto_1fr] gap-3 items-center h-full px-4"
+  >
+    <span class="font-bold italic uppercase">Work</span>
+
+    <a href="#" class="logo mx-auto" aria-label={t.GLOBAL.OWNER}>
+      <img src="logo.gif" alt={`Logotipo de ${t.GLOBAL.OWNER}`} class="w-56" />
     </a>
 
     <Menu />

@@ -2,7 +2,15 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: system-ui, Helvetica, Arial, sans-serif;
+  --font-sans: 'Montserrat Variable', sans-serif;
+}
 
-  --color-primary: var(--color-blue-600);
+body {
+  @apply bg-black text-white;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+  scroll-behavior: smooth;
 }

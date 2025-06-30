@@ -1,12 +1,12 @@
 {
     "GLOBAL": {
-        "TITLE": "[TITLE]",
-        "OWNER": "[COMPANY_NAME]"
+        "TITLE": "Obliq",
+        "OWNER": "Obliq"
     },
     "MENU": {
         "ABOUT": "Sobre nosotros",
         "SERVICES": "Servicios",
-        "CONTACT": "Contacto",
+        "CONTACT": "Contact",
         "OPEN_MENU": "Abrir menú",
         "CLOSE_MENU": "Cerrar menú"
     },

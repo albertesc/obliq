@@ -1,36 +1,168 @@
 ---
-import Button from "./atoms/Button.astro";
-import Heading from "./atoms/Heading.astro";
 import Input from "./atoms/Input.astro";
-import Paragraph from "./atoms/Paragraph.astro";
 import Textarea from "./atoms/Textarea.astro";
+import { actions } from "astro:actions";
 ---
 
 <section
-  class="bg-gray-50 py-10 md:py-16"
+  id="contact"
+  class="bg-black pt-10 z-10 relative"
   role="region"
   aria-labelledby="contact-heading"
 >
   <div class="container mx-auto px-4">
-    <Heading level={2}>Contacta con nosotros</Heading>
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
       <div class="col-span-12 lg:col-span-5">
-        <Paragraph>
-          Si tienes alguna pregunta o necesitas más información, no dudes en
-          ponerte en contacto con nosotros. Estamos aquí para ayudarte.
-        </Paragraph>
-        <Button tag="a">Saber más</Button>
+        <h2 class="text-5xl mb-8">Let’s talk!</h2>
+        <p class="mb-4">
+          Av. de Jacinto Benavente, 20,<br />El Pla del Real, 46021 Valencia
+        </p>
+        <a href="tel:963542145" class="mb-4">Tel. 963 542 145</a>
+        <a
+          href="https://maps.app.goo.gl/zjhbc2YfqM6aKKbN7"
+          target="_blank"
+          class="flex items-center gap-2 mt-4"
+        >
+          <svg
+            width="18"
+            height="17"
+            viewBox="0 0 18 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.0765 4.07251H15.6023C16.4603 4.07251 17.1558 4.76801 17.1558 5.62595V14.9466C17.1558 15.8045 16.4603 16.5 15.6023 16.5H2.55344C1.6955 16.5 1 15.8045 1 14.9466V5.62595C1 4.76801 1.6955 4.07251 2.55344 4.07251H4.10104"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M9.4487 12.3966C9.34067 12.4742 9.21101 12.5159 9.07799 12.5159C8.94498 12.5159 8.81532 12.4742 8.70729 12.3966C5.51058 10.1181 2.11792 5.43124 5.54765 2.04454C6.48921 1.11833 7.75723 0.599518 9.07799 0.600098C10.402 0.600098 11.6723 1.11975 12.6083 2.04388C16.0381 5.43057 12.6454 10.1167 9.4487 12.3966Z"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M9.07787 6.55796C9.42901 6.55796 9.76576 6.41847 10.0141 6.17018C10.2623 5.92189 10.4018 5.58513 10.4018 5.234C10.4018 4.88286 10.2623 4.54611 10.0141 4.29781C9.76576 4.04952 9.42901 3.91003 9.07787 3.91003C8.72673 3.91003 8.38998 4.04952 8.14169 4.29781C7.89339 4.54611 7.75391 4.88286 7.75391 5.234C7.75391 5.58513 7.89339 5.92189 8.14169 6.17018C8.38998 6.41847 8.72673 6.55796 9.07787 6.55796Z"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          Google Maps
+        </a>
+        <a
+          href="mailto:marketing@obliq.io"
+          class="flex items-center gap-2 mt-4"
+        >
+          <svg
+            width="18"
+            height="14"
+            viewBox="0 0 18 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6023 0.498718H2.55344C1.6955 0.498718 1 1.19422 1 2.05216V11.3728C1 12.2307 1.6955 12.9262 2.55344 12.9262H15.6023C16.4603 12.9262 17.1558 12.2307 17.1558 11.3728V2.05216C17.1558 1.19422 16.4603 0.498718 15.6023 0.498718Z"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M3.4856 2.98419L9.07798 7.33383L14.6704 2.98419"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          marketing@obliq.io
+        </a>
       </div>
       <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-        <form method="POST">
-          <Input label="Nombre*" name="name" required />
-          <Input label="Correo electrónico*" name="email" required />
-          <Input label="Asunto" name="subject" required />
-          <Textarea label="Mensaje" name="message" required />
+        <form method="POST" action={actions.send}>
+          <div
+            class="errors rounded mb-4 bg-red-200 text-red-600 p-4 hidden border border-red-400"
+          >
+          </div>
+          <Input label="Nombre" name="name" />
+          <Input label="Correo electrónico*" name="email" />
+          <Textarea label="Mensaje" name="message" />
           <small class="block mb-6">* Campos obligatorios</small>
-          <Button tag="button">Enviar</Button>
+          <div
+            class="success hidden rounded mb-4 bg-green-200 text-green-600 p-4 border border-green-400"
+          >
+            <p class="mb-3">¡Gracias por tu mensaje!</p>
+            <p>Te responderemos lo antes posible.</p>
+          </div>
+          <button class="text-3xl flex items-center gap-2 cursor-pointer">
+            Enviar
+            <svg
+              width="19"
+              height="18"
+              viewBox="0 0 19 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.6156 0.839999L18.1756 9.04L12.6156 17.32H9.13563L14.3756 9.04L9.13563 0.839999H12.6156ZM15.1756 7.6V10.52H0.695625V7.6H15.1756Z"
+                fill="white"></path>
+            </svg>
+          </button>
         </form>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(
+      "#contact form"
+    ) as HTMLFormElement | null;
+    if (form) {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const email = form.querySelector(
+          'input[name="email"]'
+        ) as HTMLInputElement;
+
+        if (!email.value) {
+          const errorsDiv = form.querySelector(".errors");
+          if (errorsDiv) {
+            errorsDiv.classList.remove("hidden");
+            errorsDiv.innerHTML = `
+              <p class="mb-3">Rellena todos los campos obligatorios</p>
+              <ul class="list-disc pl-5">
+                ${!email.value ? "<li>Email es obligatorio</li>" : ""}
+              </ul>
+            `;
+            errorsDiv.scrollIntoView({ behavior: "smooth" });
+          }
+          return;
+        }
+
+        const formData = new FormData(form);
+        const action = form.action;
+        const method = form.method;
+        fetch(action, {
+          method: method,
+          body: formData,
+          headers: {
+            "X-Requested-With": "XMLHttpRequest",
+          },
+        }).then((response) => response.json());
+
+        const successDiv = form.querySelector(".success") as HTMLDivElement;
+        if (successDiv) {
+          successDiv.classList.remove("hidden");
+          setTimeout(() => {
+            successDiv.classList.add("hidden");
+          }, 5000);
+        }
+
+        const errorsDiv = form.querySelector(".errors") as HTMLDivElement;
+        if (errorsDiv) {
+          errorsDiv.classList.add("hidden");
+        }
+
+        form.reset();
+      });
+    }
+  });
+</script>

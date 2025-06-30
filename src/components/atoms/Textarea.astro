@@ -10,8 +10,7 @@ interface Props {
 const { name, required = false, label, error, classList } = Astro.props;
 
 const styles = {
-  input:
-    "w-full bg-black/10 px-5 py-3 mb-2 rounded outline-none focus:outline-none focus:ring focus:ring-gray-500",
+  input: "w-full bg-black/10 py-3 mb-2 border-b border-white outline-none",
   errorMessage: "text-red-600 text-sm mt-1 hidden",
 };
 ---
