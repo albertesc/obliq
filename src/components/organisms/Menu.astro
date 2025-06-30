@@ -56,12 +56,19 @@ const classes = {
   const burgerButton = document.querySelector(".burger-menu");
   const mainMenu = document.querySelector(".main-menu");
   const closeButton = document.querySelector(".close-button");
+  const menuLinks = document.querySelectorAll(".main-menu a");
 
-  burgerButton?.addEventListener("click", () => {
+  const openMenu = () => {
     gsap.to(mainMenu, { x: 0, duration: 0.3, ease: "power2.out" });
-  });
-
-  closeButton?.addEventListener("click", () => {
+  };
+  const closeMenu = () => {
     gsap.to(mainMenu, { x: "100%", duration: 0.3, ease: "power2.in" });
-  });
+  };
+
+  burgerButton?.addEventListener("click", openMenu);
+  closeButton?.addEventListener("click", closeMenu);
+
+  const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+  isMobile &&
+    menuLinks.forEach((li) => li.addEventListener("click", closeMenu));
 </script>
