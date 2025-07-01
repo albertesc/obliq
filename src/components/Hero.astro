@@ -3,17 +3,8 @@
   role="region"
   aria-labelledby="welcome-heading"
 >
-  <div
-    class="container mx-auto px-4 flex items-center justify-center h-full relative z-20"
-  >
-    <h1
-      class="text-3xl md:text-5xl font-bold text-shadow text-center title text-balance"
-    >
-      Nueva web<br />proximamente
-    </h1>
-  </div>
   <span
-    class="absolute top-0 left-0 bg-black opacity-40 w-full h-full z-10 block"
+    class="absolute top-0 left-0 bg-black opacity-0 w-full h-full z-10 block"
   >
   </span>
   <!--
@@ -23,11 +14,12 @@
   />
 -->
 
-  <div class="fixed top-0 left-0 w-screen h-screen overflow-hidden -z-10">
+  <div
+    class="image1 fixed top-0 left-0 w-screen h-screen overflow-hidden -z-10"
+  >
     <iframe
-      src="https://player.vimeo.com/video/1091248148?h=8c7e509a61&autoplay=1&muted=1&background=1"
+      src="https://player.vimeo.com/video/1097798849?h=8c7e509a61&autoplay=1&muted=1&background=1"
       class="absolute top-1/2 left-1/2 h-screen w-[177.78vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-      frameborder="0"
       allow="autoplay; fullscreen"
       allowfullscreen></iframe>
   </div>
@@ -35,37 +27,14 @@
 
 <script>
   import { gsap } from "gsap";
-  import { SplitText, ScrollTrigger } from "gsap/all";
+  import { ScrollTrigger } from "gsap/all";
 
-  gsap.registerPlugin(SplitText, ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
-  const title = document.querySelector(".title");
-  const splitTitle = new SplitText(title, { type: "chars", mask: "chars" });
-
-  gsap.from(splitTitle.chars, {
-    duration: 0.1,
-    y: 50,
-    autoAlpha: 0,
-    skewY: -10,
-    ease: "power3.out",
-    stagger: 0.05,
+  const animation = gsap.timeline().to(".image1", {
+    scale: 2,
+    ease: "none",
   });
-
-  const animation = gsap
-    .timeline()
-    .to(".image1", {
-      scale: 1.8,
-      ease: "none",
-    })
-    .to(
-      ".title",
-      {
-        opacity: 0,
-        scale: 1.8,
-        translateY: 100,
-      },
-      "-=0.5"
-    );
 
   ScrollTrigger.create({
     animation: animation,
