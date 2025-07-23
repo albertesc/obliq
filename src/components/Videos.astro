@@ -4,6 +4,7 @@ import { getAllVideos } from "@/services/videos";
 import VideoItem from "./organisms/VideoItem.astro";
 
 const videos = await getAllVideos();
+console.log("Videos:", videos);
 ---
 
 <section class="pb-16">
