@@ -1,11 +1,14 @@
 ---
 import VideoLayout from "@/layouts/Video.astro";
-import { getVideoBySlug } from "@/services/videos";
 import type { Video } from "@/types/videos";
 import Plus from "@/assets/icons/plus.svg";
+import data from "@/data/videos.json";
 
 const slug = Astro.params.slug as string;
-const video = (await getVideoBySlug(slug)) as Video;
+const video = data.videos.find((v) => v.slug === slug) as Video;
+if (!video) {
+  throw new Error(`Video with slug "${slug}" not found`);
+}
 ---
 
 <VideoLayout title={video.title}>
