@@ -1,13 +1,13 @@
 const API_URL = import.meta.env.PUBLIC_API_URL;
 
-export function getAllVideos() {
-  return fetch(`${API_URL}videos/all.json`)
-    .then((response) => response.json())
-    .then((data) => data.videos);
+export async function getAllVideos() {
+  const response = await fetch(`${API_URL}videos/all.json`);
+  const data = await response.json();
+  return data.videos;
 }
 
-export function getVideoBySlug(slug: string) {
-  return fetch(`${API_URL}videos/${slug}.json`)
-    .then((response) => response.json())
-    .then((data) => data);
+export async function getVideoBySlug(slug: string) {
+  const response = await fetch(`${API_URL}videos/${slug}.json`);
+  const data = await response.json();
+  return data;
 }
