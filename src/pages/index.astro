@@ -1,10 +1,137 @@
 ---
-import Contact from "@components/Contact.astro";
-import Hero from "@components/Hero.astro";
-import Layout from "@layouts/Layout.astro";
+import Hero from "@/components/Hero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Marquee from "@/components/Marqee.astro";
+import Videos from "@/components/Videos.astro";
+import Cursor from "@/assets/icons/plus.svg";
 ---
 
 <Layout title="Home">
   <Hero />
-  <Contact />
+  <Marquee />
+  <Videos />
+
+  <section class="pt-16 pb-32">
+    <div class="container mx-auto px-4">
+      <h2 class="text-5xl mb-8 uppercase font-black italic leading-none">
+        Next one can be yours...
+      </h2>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-5 text-[38px] leading-none"
+      >
+        Contact us
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.3461 0.839999L17.9061 9.04L12.3461 17.32H8.86609L14.1061 9.04L8.86609 0.839999H12.3461ZM14.9061 7.6V10.52H0.426094V7.6H14.9061Z"
+            fill="white"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <div
+    id="customCursor"
+    class="fixed z-50 top-0 left-0 pointer-events-none"
+    style="transform: scale(0);"
+  >
+    <Cursor />
+  </div>
 </Layout>
+
+<script>
+  import gsap from "gsap";
+
+  function initCursorBehavior() {
+    const cursor = document.getElementById("customCursor")!;
+    const targets = document.querySelectorAll(".custom-cursor-target");
+    const CURSOR_HALF = 75 / 2;
+
+    let pendingX = 0;
+    let pendingY = 0;
+    let rafId: number | null = null;
+    let hideTimeout: number | null = null;
+    let showTimeout: number | null = null;
+
+    function updatePosition() {
+      gsap.set(cursor, {
+        x: pendingX - CURSOR_HALF,
+        y: pendingY - CURSOR_HALF,
+      });
+      rafId = null;
+    }
+
+    function onMove(e: Event) {
+      const mouseEvent = e as MouseEvent;
+      pendingX = mouseEvent.clientX;
+      pendingY = mouseEvent.clientY;
+      if (!rafId) rafId = requestAnimationFrame(updatePosition);
+    }
+
+    function animateShowCursor() {
+      gsap.killTweensOf(cursor);
+      gsap.to(cursor, {
+        scale: 1,
+        duration: 0.2,
+        ease: "power3.out",
+      });
+    }
+
+    function animateHideCursor() {
+      gsap.killTweensOf(cursor);
+      gsap.to(cursor, {
+        scale: 0,
+        duration: 0.2,
+        ease: "power3.inOut",
+      });
+    }
+
+    function onPointerEnter() {
+      if (hideTimeout) {
+        clearTimeout(hideTimeout);
+        hideTimeout = null;
+      }
+
+      showTimeout = window.setTimeout(() => {
+        animateShowCursor();
+        showTimeout = null;
+      }, 100); // Delay en mostrar el cursor
+    }
+
+    function onPointerLeave() {
+      if (showTimeout) {
+        clearTimeout(showTimeout);
+        showTimeout = null;
+      }
+
+      if (hideTimeout) return;
+
+      hideTimeout = window.setTimeout(() => {
+        animateHideCursor();
+        hideTimeout = null;
+      }, 50);
+    }
+
+    document.addEventListener("pointermove", onMove);
+
+    targets.forEach((target) => {
+      (target as HTMLElement).style.cursor = "none";
+      target.addEventListener("pointerenter", onPointerEnter);
+      target.addEventListener("pointerleave", onPointerLeave);
+    });
+  }
+
+  // Inicia al cargar por primera vez
+  initCursorBehavior();
+
+  // Vuelve a iniciar después de una transición Astro
+  document.addEventListener("astro:after-swap", () => {
+    initCursorBehavior();
+  });
+</script>

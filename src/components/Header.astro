@@ -1,7 +1,6 @@
 ---
-import Logo from "@assets/logo.svg";
-import Menu from "@components/organisms/Menu.astro";
-import { getI18N } from "@a18n/index.ts";
+import Menu from "@/components/organisms/Menu.astro";
+import { getI18N } from "@/a18n/index.ts";
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
@@ -11,10 +10,10 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
   <div
     class="container mx-auto grid grid-cols-[1fr_auto_1fr] gap-3 items-center h-full px-4"
   >
-    <span class="font-bold italic uppercase"></span>
+    <span><a href="/#" class="font-bold italic uppercase">Work</a></span>
 
-    <a href="#" class="logo mx-auto" aria-label={t.GLOBAL.OWNER}>
-      <img src="logo.gif" alt={`Logotipo de ${t.GLOBAL.OWNER}`} class="w-56" />
+    <a href="/#" class="logo mx-auto" aria-label={t.GLOBAL.OWNER}>
+      <img src="/logo.gif" alt={`Logotipo de ${t.GLOBAL.OWNER}`} class="w-56" />
     </a>
 
     <Menu />

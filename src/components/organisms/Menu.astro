@@ -1,12 +1,26 @@
 ---
-import MenuBurger from "@assets/icons/burger.svg";
-import CloseIcon from "@assets/icons/close.svg";
-import { getI18N } from "@a18n/index.ts";
+import MenuBurger from "@/assets/icons/burger.svg";
+import CloseIcon from "@/assets/icons/close.svg";
+import { getI18N } from "@/a18n/index.ts";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
 
-const menuLinks = [{ text: t.MENU.CONTACT, href: "#contact" }];
+const menuLinks = [
+  {
+    text: t.MENU.ABOUT,
+    href: getRelativeLocaleUrl(currentLocale ?? "es", "/about"),
+  },
+  {
+    text: t.MENU.RENTAL,
+    href: getRelativeLocaleUrl(currentLocale ?? "es", "/rental"),
+  },
+  {
+    text: t.MENU.CONTACT,
+    href: getRelativeLocaleUrl(currentLocale ?? "es", "/contact"),
+  },
+];
 
 const classes = {
   link: "hover:text-primary text-xl md:text-base uppercase",

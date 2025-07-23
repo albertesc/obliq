@@ -1,17 +1,126 @@
 ---
-import { getI18N } from "@a18n/index.ts";
+import { getI18N } from "@/a18n/index.ts";
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
 ---
 
-<footer class="pt-10 pb-5 mt-auto bg-black z-10 relative">
-  <div
-    class="container mx-auto w-full px-4 flex flex-col md:grid md:grid-cols-4 gap-4 text-center md:text-left"
-  >
-    <span class="col-span-4 mt-12 text-center">
-      © <span class="font-bold italic uppercase">{t.GLOBAL.OWNER}</span>
-      {new Date().getFullYear()}
-    </span>
+<footer class="pb-5 mt-auto bg-black z-10 relative">
+  <div class="container mx-auto w-full px-4">
+    <div class="flex justify-end w-full mb-8">
+      <svg
+        width="682"
+        height="35"
+        viewBox="0 0 682 35"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="translate-x-4 md:translate-x-6"
+      >
+        <path
+          d="M47.3105 -52.0049H85.5061L38.9261 34.634H0.730469L47.3105 -52.0049Z"
+          fill="white"></path>
+        <path
+          d="M121.839 -52.0049H160.034L113.454 34.634H75.2585L121.839 -52.0049Z"
+          fill="white"></path>
+        <path
+          d="M196.367 -52.0049H234.562L187.982 34.634H149.787L196.367 -52.0049Z"
+          fill="white"></path>
+        <path
+          d="M270.895 -52.0049H309.09L262.51 34.634H224.315L270.895 -52.0049Z"
+          fill="white"></path>
+        <path
+          d="M345.423 -52.0049H383.618L337.038 34.634H298.843L345.423 -52.0049Z"
+          fill="white"></path>
+        <path
+          d="M419.951 -52.0049H458.146L411.566 34.634H373.371L419.951 -52.0049Z"
+          fill="white"></path>
+        <path
+          d="M494.479 -52.0049H532.674L486.094 34.634H447.899L494.479 -52.0049Z"
+          fill="white"></path>
+        <path
+          d="M569.007 -52.0049H607.202L560.622 34.634H522.427L569.007 -52.0049Z"
+          fill="white"></path>
+        <path
+          d="M643.535 -52.0049H681.73L635.15 34.634H596.955L643.535 -52.0049Z"
+          fill="white"></path>
+      </svg>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="col-span-1">
+        <p class="text-3xl md:max-w-[12ch] mb-2.5">
+          Subscribe to our newsletter
+        </p>
+        <form
+          class="relative flex flex-col gap-2.5 md:max-w-[460px] w-full mb-24"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Here your email"
+            class="py-2 border-b border-gray-300 focus:outline-none"
+            required
+          />
+          <button
+            type="submit"
+            class="bg-primary text-white p-2 rounded hover:bg-primary-dark transition-colors absolute right-0 top-0 h-full"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.3461 0.839999L17.9061 9.04L12.3461 17.32H8.86609L14.1061 9.04L8.86609 0.839999H12.3461ZM14.9061 7.6V10.52H0.426094V7.6H14.9061Z"
+                fill="white"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+      <div class="col-span-1">
+        <p
+          class="text-center md:text-right text-[38px] uppercase font-bold md:max-w-[16ch] italic md:ml-auto mb-24"
+        >
+          We tilt the gaze, we elevate the story.
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6">
+      <span class="col-span-1 opacity-40 text-center md:text-left">
+        © <span class="font-bold italic uppercase">{t.GLOBAL.OWNER}</span>
+        {new Date().getFullYear()}
+      </span>
+      <div class="col-span-1">
+        <ul class="flex flex-wrap gap-6 justify-center md:justify-end">
+          <li>
+            <a href="#" target="_blank" class="uppercase hover:opacity-40"
+              >Instagram</a
+            >
+          </li>
+          <li>
+            <a href="#" target="_blank" class="uppercase hover:opacity-40"
+              >TikTok</a
+            >
+          </li>
+          <li>
+            <a href="#" target="_blank" class="uppercase hover:opacity-40"
+              >Vimeo</a
+            >
+          </li>
+          <li>
+            <a href="#" target="_blank" class="uppercase hover:opacity-40"
+              >YouTube</a
+            >
+          </li>
+          <li>
+            <a href="#" target="_blank" class="uppercase hover:opacity-40"
+              >LinkedIn</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </footer>

@@ -5,17 +5,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@a18n/*": [
-        "src/a18n/*"
+      "@/*": [
+        "src/*"
       ],
     },
   }

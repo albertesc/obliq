@@ -8,9 +8,3 @@
 body {
   @apply bg-black text-white;
 }
-
-html,
-body {
-  overscroll-behavior: none;
-  scroll-behavior: smooth;
-}

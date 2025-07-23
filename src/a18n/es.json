@@ -4,8 +4,8 @@
         "OWNER": "Obliq"
     },
     "MENU": {
-        "ABOUT": "Sobre nosotros",
-        "SERVICES": "Servicios",
+        "ABOUT": "About",
+        "RENTAL": "Rental",
         "CONTACT": "Contact",
         "OPEN_MENU": "Abrir menú",
         "CLOSE_MENU": "Cerrar menú"
@@ -13,7 +13,7 @@
     "FOOTER": {
         "KNOWUS": "Conócenos",
         "ABOUT": "Nuestros valores",
-        "SERVICES": "Servicios",
+        "SERVICES": "Rental",
         "CONTACT": "Contacto",
         "PRIVACY": "Política de privacidad",
         "COOKIES": "Política de cookies",
