@@ -3,7 +3,13 @@ console.log("API_URL:", API_URL);
 
 export async function getAllVideos() {
   try {
-    const response = await fetch(`${API_URL}videos/all.json`);
+    const response = await fetch(`${API_URL}videos/all.json`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
@@ -16,7 +22,13 @@ export async function getAllVideos() {
 }
 
 export async function getVideoBySlug(slug: string) {
-  const response = await fetch(`${API_URL}videos/${slug}.json`);
+  const response = await fetch(`${API_URL}videos/${slug}.json`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   if (!response.ok) {
     throw new Error(`HTTP ${response.status}`);
   }
