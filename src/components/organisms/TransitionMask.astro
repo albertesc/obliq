@@ -25,12 +25,14 @@
 
     const slideIn = () =>
       new Promise((resolve) => {
-        gsap.set(mask, { backgroundColor: isWhitePage ? "white" : "black" });
+        gsap.set(mask, {
+          y: "-100%",
+          backgroundColor: isWhitePage ? "white" : "black",
+        });
         gsap.to(mask, {
           y: 0,
           duration: 1,
           ease: "power2.inOut",
-          backgroundColor: isWhitePage ? "white" : "black",
           onStart: () => mask?.classList.remove("pointer-events-none"),
           onComplete: resolve,
         });
@@ -38,14 +40,18 @@
 
     const slideOut = () =>
       new Promise<void>((resolve) => {
-        gsap.set(mask, { backgroundColor: isWhitePage ? "white" : "black" });
-        gsap.to(mask, {
-          y: "-100%",
-          duration: 1,
-          ease: "power2.inOut",
-          backgroundColor: isWhitePage ? "white" : "black",
-          onComplete: () => mask?.classList.add("pointer-events-none"),
-        });
+        gsap
+          .timeline()
+          .to(mask, {
+            duration: 1,
+            backgroundColor: isWhitePage ? "white" : "black",
+          })
+          .to(mask, {
+            y: "-100%",
+            duration: 1,
+            ease: "power2.inOut",
+            onStart: () => mask?.classList.remove("pointer-events-none"),
+          });
         resolve();
       });
 
