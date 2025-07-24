@@ -9,7 +9,6 @@ export const server = {
     accept: 'form',
     handler: async (formData) => {
       const dataEntries = Object.fromEntries(formData.entries());
-      console.log('Form Data:', dataEntries);
 
       const { data, error } = await resend.emails.send({
         from: 'Obliq <obliq@resend.dev>',

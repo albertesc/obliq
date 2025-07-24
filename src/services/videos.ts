@@ -1,5 +1,4 @@
 const API_URL = import.meta.env.PUBLIC_API_URL;
-console.log("API_URL:", API_URL);
 
 export async function getAllVideos() {
   try {
@@ -18,7 +17,6 @@ export async function getAllVideos() {
     const data = await response.json();
     return data.videos;
   } catch (err) {
-    console.error("Error al obtener videos:", err);
     return [];
   }
 }

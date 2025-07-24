@@ -5,6 +5,7 @@ import "@fontsource-variable/montserrat";
 import { getI18N } from "@/a18n/index.ts";
 import Footer from "@/components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
+import TransitionMask from "@/components/organisms/TransitionMask.astro";
 
 interface Props {
   title: string;
@@ -26,6 +27,7 @@ const { title } = Astro.props;
     <ClientRouter />
   </head>
   <body class="flex flex-col min-h-screen pt-16 md:pt-20">
+    <TransitionMask />
     <Header />
     <slot />
     <Footer />
