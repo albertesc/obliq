@@ -1,18 +1,20 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Cta from "@/components/organisms/Cta.astro";
+import Products from "@/components/Products.astro";
 ---
 
 <Layout title="Alquiler de equipos" pageColor="white">
-  <section class="max-w-4xl mx-auto px-4 py-16 prose">
-    <h1>Alquiler de equipos</h1>
-    <p>
-      Aquí encontrarás información sobre el alquiler de nuestros equipos.
-      Ofrecemos una amplia gama de dispositivos y accesorios para satisfacer tus
-      necesidades.
-    </p>
-    <p>
-      Si estás interesado en alquilar alguno de nuestros productos, no dudes en
-      contactarnos para más detalles.
-    </p>
+  <section class="container mx-auto px-4 py-16">
+    <h1 class="text-5xl font-black leading-none text-balance italic uppercase">
+      Do you need to rent
+    </h1>
+    <p class="font-medium text-[38px]">equipment for your shoots?</p>
   </section>
+
+  <Products />
+  <Cta
+    title="If you need any other material that you don't see here, please send us an email and we will get it for you."
+    long
+  />
 </Layout>

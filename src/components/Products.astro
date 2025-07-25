@@ -1,0 +1,49 @@
+---
+import { products } from "@/data/products.json";
+---
+
+<section class="container mx-auto px-4 pt-16">
+  {
+    products.map((product) => (
+      <div class="grid grid-cols-1 md:grid-cols-[25%_1fr_15%] gap-14 mb-14 border-b border-gray-300 pb-14">
+        <div class="flex items-center justify-center">
+          <img
+            src={product.image}
+            alt={product.name}
+            class="size-auto object-cover bg-gray-200 m-auto"
+          />
+        </div>
+        <div>
+          <h2 class="text-2xl font-black italic uppercase mb-6">
+            {product.name}
+          </h2>
+          <p class="mb-8 text-lg font-medium">{product.description}</p>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-5 text-[38px] leading-none"
+          >
+            Rent
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.3461 0.839999L17.9061 9.04L12.3461 17.32H8.86609L14.1061 9.04L8.86609 0.839999H12.3461ZM14.9061 7.6V10.52H0.426094V7.6H14.9061Z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <p class="text-lg text-right text-[28px] leading-none">
+          {product.price}€ <span class="text-[21px]">+ IVA</span>
+          <br />
+          /day
+        </p>
+      </div>
+    ))
+  }
+</section>

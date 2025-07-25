@@ -1,14 +1,20 @@
 ---
 export interface Props {
   title: string;
+  long?: boolean;
 }
-const { title } = Astro.props;
+const { title, long } = Astro.props;
 ---
 
 <section class="pt-16 pb-32">
   <div class="container mx-auto px-4">
     <h2
-      class="text-5xl mb-8 uppercase font-black italic leading-none text-balance max-w-[25ch]"
+      class:list={[
+        "mb-8 text-balance",
+        long
+          ? "text-2xl max-w-[50ch]"
+          : "text-5xl uppercase font-black italic max-w-[25ch] leading-none ",
+      ]}
     >
       {title}
     </h2>
