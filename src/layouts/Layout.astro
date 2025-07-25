@@ -9,11 +9,12 @@ import TransitionMask from "@/components/organisms/TransitionMask.astro";
 
 interface Props {
   title: string;
+  pageColor?: string;
 }
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
-const { title } = Astro.props;
+const { title, pageColor } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,9 +27,18 @@ const { title } = Astro.props;
     <title>{t.GLOBAL.TITLE} | {title}</title>
     <ClientRouter />
   </head>
-  <body class="flex flex-col min-h-screen pt-16 md:pt-20">
-    <TransitionMask />
-    <Header />
+  <body
+    class:list={[
+      "flex",
+      "flex-col",
+      "min-h-screen",
+      "pt-16",
+      "md:pt-20",
+      pageColor === "white" ? "bg-white text-black" : "bg-black text-white",
+    ]}
+  >
+    <TransitionMask enterColor={pageColor} />
+    <Header pageColor={pageColor} />
     <slot />
     <Footer />
   </body>

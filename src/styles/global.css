@@ -5,10 +5,6 @@
   --font-sans: 'Montserrat Variable', sans-serif;
 }
 
-body {
-  @apply bg-black text-white;
-}
-
 /* Estilos para la transición de página */
 ::view-transition-old(page),
 ::view-transition-new(page) {

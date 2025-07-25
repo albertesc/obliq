@@ -2,18 +2,63 @@
 import Menu from "@/components/organisms/Menu.astro";
 import { getI18N } from "@/a18n/index.ts";
 
+export interface Props {
+  pageColor?: string;
+}
+
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
+const { pageColor } = Astro.props;
+
+const isCurrentLink = (href: string) => {
+  const currentPath = Astro.url.pathname;
+  return currentPath === href || currentPath.startsWith(href + "/");
+};
+const currentLinkClasses =
+  "hover:text-primary text-xl md:text-base uppercase text-primary font-bold italic";
+const linkClasses = "hover:text-primary text-xl md:text-base uppercase";
 ---
 
-<header class="fixed top-0 w-full h-16 md:h-20 z-50 bg-black" role="banner">
+<header
+  class:list={[
+    "fixed",
+    "top-0",
+    "w-full",
+    "h-16",
+    "md:h-20",
+    "z-50",
+    pageColor === "white" ? "bg-white text-black" : "bg-black text-white",
+  ]}
+  role="banner"
+>
   <div
     class="container mx-auto grid grid-cols-[1fr_auto_1fr] gap-3 items-center h-full px-4"
   >
-    <span><a href="/" class="font-bold italic uppercase">Work</a></span>
+    <span>
+      <a
+        href="/"
+        class:list={isCurrentLink("/") ? currentLinkClasses : linkClasses}
+      >
+        Work
+      </a>
+    </span>
 
     <a href="/" class="logo mx-auto" aria-label={t.GLOBAL.OWNER}>
-      <img src="/logo.gif" alt={`Logotipo de ${t.GLOBAL.OWNER}`} class="w-56" />
+      {
+        pageColor === "white" ? (
+          <img
+            src="/logo-inverse.svg"
+            alt={`Logotipo de ${t.GLOBAL.OWNER}`}
+            class="w-32"
+          />
+        ) : (
+          <img
+            src="/logo.gif"
+            alt={`Logotipo de ${t.GLOBAL.OWNER}`}
+            class="w-56"
+          />
+        )
+      }
     </a>
 
     <Menu />

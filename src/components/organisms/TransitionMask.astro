@@ -1,10 +1,19 @@
 ---
-// src/components/TransitionMask.astro
+export interface Props {
+  enterColor?: string;
+}
+const { enterColor } = Astro.props;
 ---
 
 <div
   id="transition-mask"
-  class="fixed inset-0 z-[999] pointer-events-none bg-black"
+  class:list={[
+    "fixed",
+    "inset-0",
+    "z-[999]",
+    "pointer-events-none",
+    enterColor === "white" ? "bg-white" : "bg-black",
+  ]}
 >
 </div>
 
@@ -14,44 +23,31 @@
   function initTransitionMask() {
     const mask = document.getElementById("transition-mask") as HTMLDivElement;
 
-    // if main data-page-col
-    const isWhitePage =
-      document.querySelector("main")?.getAttribute("data-page-color") ===
-      "white";
-
-    console.log("TransitionMask initialized", {
-      isWhitePage,
-    });
-
-    const slideIn = () =>
+    const slideIn = (pageColor: string) =>
       new Promise((resolve) => {
-        gsap.set(mask, {
-          y: "-100%",
-          backgroundColor: isWhitePage ? "white" : "black",
-        });
-        gsap.to(mask, {
-          y: 0,
-          duration: 1,
-          ease: "power2.inOut",
-          onStart: () => mask?.classList.remove("pointer-events-none"),
-          onComplete: resolve,
-        });
+        gsap
+          .timeline()
+          .to(mask, {
+            y: 0,
+            duration: 1,
+            ease: "power2.inOut",
+            onStart: () => mask?.classList.remove("pointer-events-none"),
+          })
+          .to(mask, {
+            duration: 0.5,
+            backgroundColor: pageColor,
+            onComplete: resolve,
+          });
       });
 
     const slideOut = () =>
       new Promise<void>((resolve) => {
-        gsap
-          .timeline()
-          .to(mask, {
-            duration: 1,
-            backgroundColor: isWhitePage ? "white" : "black",
-          })
-          .to(mask, {
-            y: "-100%",
-            duration: 1,
-            ease: "power2.inOut",
-            onStart: () => mask?.classList.remove("pointer-events-none"),
-          });
+        gsap.to(mask, {
+          y: "-100%",
+          duration: 1,
+          ease: "power2.inOut",
+          onStart: () => mask?.classList.remove("pointer-events-none"),
+        });
         resolve();
       });
 
@@ -59,6 +55,7 @@
       const anchor = link as HTMLAnchorElement;
       const url = new URL(anchor.href);
       const isSameOrigin = location.origin === url.origin;
+      const pageColor = anchor.dataset.pageColor || "black";
 
       if (!isSameOrigin || anchor.target === "_blank") return;
 
@@ -66,7 +63,7 @@
         e.preventDefault();
         const href = anchor.href;
 
-        await slideIn();
+        await slideIn(pageColor);
         window.location.href = href;
       });
     });
