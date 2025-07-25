@@ -3,7 +3,6 @@
   class="overflow-hidden py-8 cursor-default whitespace-nowrap"
 >
   <div class="marquee-track flex gap-0 md:gap-5">
-    <!-- contenido repetido para efecto continuo -->
     <div class="marquee-content flex items-center gap-5 md:gap-20">
       <span
         class="text-[80px] md:text-[200px] uppercase font-black italic leading-none"
@@ -76,7 +75,5 @@
   }
 
   initMarquee();
-
-  // Vuelve a iniciar después de una transición Astro
   document.addEventListener("astro:after-swap", initMarquee);
 </script>

@@ -96,11 +96,6 @@ const videos: Video[] = data.videos;
     });
   }
 
-  // Inicia al cargar por primera vez
   initCursorBehavior();
-
-  // Vuelve a iniciar después de una transición Astro
-  document.addEventListener("astro:after-swap", () => {
-    initCursorBehavior();
-  });
+  document.addEventListener("astro:after-swap", initCursorBehavior);
 </script>

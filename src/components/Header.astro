@@ -1,32 +1,21 @@
 ---
-import Menu from "@/components/organisms/Menu.astro";
-import { getI18N } from "@/a18n/index.ts";
-
 export interface Props {
   pageColor?: string;
 }
+import Menu from "@/components/organisms/Menu.astro";
+import { getI18N } from "@/a18n/index.ts";
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
 const { pageColor } = Astro.props;
 
-const isCurrentLink = (href: string) => {
-  const currentPath = Astro.url.pathname;
-  return currentPath === href || currentPath.startsWith(href + "/");
-};
-const currentLinkClasses =
-  "hover:text-primary text-xl md:text-base uppercase text-primary font-bold italic";
-const linkClasses = "hover:text-primary text-xl md:text-base uppercase";
+const isCurrentLink = (href: string) =>
+  Astro.url.pathname === href || Astro.url.pathname.startsWith(href + "/");
 ---
 
 <header
   class:list={[
-    "fixed",
-    "top-0",
-    "w-full",
-    "h-16",
-    "md:h-20",
-    "z-50",
+    "fixed top-0 w-full h-16 md:h-20 z-50",
     pageColor === "white" ? "bg-white text-black" : "bg-black text-white",
   ]}
   role="banner"
@@ -37,7 +26,10 @@ const linkClasses = "hover:text-primary text-xl md:text-base uppercase";
     <span>
       <a
         href="/"
-        class:list={isCurrentLink("/") ? currentLinkClasses : linkClasses}
+        class:list={[
+          "hover:text-primary text-xl md:text-base uppercase",
+          isCurrentLink("/") && "font-bold italic",
+        ]}
       >
         Work
       </a>
