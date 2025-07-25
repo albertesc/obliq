@@ -1,0 +1,26 @@
+---
+import { directors } from "@/data/directors.json";
+---
+
+<section>
+  <div class="container mx-auto px-4 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-28">
+      <div class="w-full max-w-[368px]">
+        <p class="text-[42px] leading-none">
+          We work for the top directors on the market:
+        </p>
+      </div>
+      <div>
+        <ul>
+          {
+            directors.map((director) => (
+              <li class="border-t border-black py-6 text-[38px] font-black italic uppercase">
+                {director.name}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

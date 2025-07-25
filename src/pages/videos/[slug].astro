@@ -16,6 +16,7 @@ if (!video) {
     <span
       onclick="history.back()"
       class="fixed top-8 right-8 z-50 rotate-45 cursor-pointer video-item"
+      transition:name="video-back-button"
     >
       <Plus />
     </span>
@@ -63,18 +64,19 @@ if (!video) {
     </a>
 
     <div class="container mx-auto py-14">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="flex flex-col">
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
+        <div>
           <h2 class="text-[38px] font-extrabold italic uppercase leading-none">
             {video.title}
           </h2>
-          <p class="mb-8 ml-1">{video.date}</p>
-          <span class="ml-1 mt-auto">Client:</span>
+          <p class="ml-1 text-lg">{video.client}</p>
+        </div>
+        <div>
+          <span class="ml-1 text-lg">Date:</span>
           <p class="text-2xl font-extrabold italic uppercase leading-none">
-            {video.client}
+            {video.date}
           </p>
         </div>
-        <p class="text-lg">{video.description_eng}</p>
       </div>
     </div>
   </section>

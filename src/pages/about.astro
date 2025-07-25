@@ -1,15 +1,23 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Marquee from "@/components/organisms/Marqee.astro";
+import Cta from "@/components/organisms/Cta.astro";
+import Directors from "@/components/Directors.astro";
+import AboutSection from "@/components/About.astro";
+import { brands } from "@/data/brands.json";
+
+const marqueeTexts = [
+  "Our directors",
+  "Our directors",
+  "Our directors",
+  "Our directors",
+];
 ---
 
 <Layout title="Sobre nosotros" pageColor="white">
-  <section class="max-w-4xl mx-auto px-4 py-16 prose">
-    <h1>Sobre nosotros</h1>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas sit
-      laborum, officia, facilis eveniet corrupti eaque labore nemo cupiditate
-      fugit, est voluptatibus? Ipsam debitis tenetur voluptatibus, tempora nulla
-      aspernatur expedita.
-    </p>
-  </section>
+  <AboutSection />
+  <Marquee texts={marqueeTexts} />
+  <Directors />
+  <Marquee small texts={brands} />
+  <Cta title="Brands that have already trusted us" />
 </Layout>
