@@ -62,18 +62,19 @@ const { enterColor } = Astro.props;
       anchor.addEventListener("click", async (e) => {
         e.preventDefault();
         const href = anchor.href;
-
         await slideIn(pageColor);
         window.location.href = href;
       });
     });
 
+    // si es home o video, no hacer slide out
+    if (location.pathname === "/" || location.pathname.startsWith("/video/")) {
+      mask.style.transform = "translateY(-100%)";
+      return;
+    }
     slideOut();
   }
 
   initTransitionMask();
-
-  document.addEventListener("astro:after-swap", () => {
-    initTransitionMask();
-  });
+  document.addEventListener("astro:after-swap", initTransitionMask);
 </script>
