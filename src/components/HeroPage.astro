@@ -1,3 +1,11 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <section class="py-8 h-[232px] overflow-hidden relative">
   <img
     src="/images/contact.jpg"
@@ -8,7 +16,7 @@
     <h1
       class="text-5xl font-black leading-none text-balance italic uppercase max-w-[25ch]"
     >
-      from sunny valencia with love
+      {title}
     </h1>
   </div>
 </section>

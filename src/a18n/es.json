@@ -1,23 +1,77 @@
 {
     "GLOBAL": {
         "TITLE": "Obliq",
-        "OWNER": "Obliq"
+        "OWNER": "Obliq",
+        "CONTACT": "Contacta"
+    },
+    "HOME": {
+        "TITLE": "Principal",
+        "CTA": "Conócenos",
+        "MARQUEE": [
+            "Portfolio",
+            "Portfolio",
+            "Portfolio",
+            "Portfolio"
+        ]
+    },
+    "VIDEOS": {
+        "DATE": "Fecha"
+    },
+    "ABOUT": {
+        "MARQUEE": [
+            "Our directors",
+            "Our directors",
+            "Our directors",
+            "Our directors"
+        ],
+        "TITLE": "Nosotros",
+        "CTA": "Marcas que ya han confiado en nosotros",
+        "DIRECTORS": "Trabajamos para los mejores directores del sector:",
+        "TEXT": "Somos una productora audiovisual formada por un equipo polivalente y experimentado. Entendemos la naturaleza de cada proyecto y nos adaptamos con eficacia a sus necesidades, asegurando una ejecución ágil y de calidad. Aportamos una mirada fresca y creativa, sin perder de vista los tiempos, objetivos y exigencias del entorno profesional actual.",
+        "TEXT1": "Creemos que la visión creativa no significa nada sin una ejecución reflexiva. En OBLIQ, apostamos por un proceso intencionado y colaborativo que transforma ideas audaces en historias con sentido. Defendemos las voces diversas, las perspectivas inclusivas y la integridad creativa, porque el futuro merece ser contado por todos y para todos. Al fin y al cabo… lo que realmente importa es la profundidad que hay detrás del objetivo.",
+        "TEXT2": "Nuestro manifiesto es simple: IDEAS POTENTES, voces diversas y relatos que cambian la perspectiva. Cada plano que creamos es una declaración contra lo genérico. Cada colaboración, un diálogo basado en la confianza. Nos impulsa la diversidad, nos forma la experiencia y estamos comprometidos con construir lo que viene. No solo producimos contenido — damos forma a la cultura."
+    },
+    "RENTAL": {
+        "TITLE": "¿Necesitas alquilar",
+        "TEXT": "equipos para tus rodajes?",
+        "CTA": "Si necesitas algún otro material que no ves aquí, por favor envíanos un correo y lo conseguiremos para ti."
+    },
+    "CONTACT": {
+        "TITLE": "Hablemos",
+        "HEADING": "Con amor desde la soleada valencia",
+        "PHONE_LABEL": "Tel. 675 489 980",
+        "EMAIL_LABEL": "info@obliqproductions.com",
+        "FORM": {
+            "NAME_LABEL": "Nombre",
+            "EMAIL_LABEL": "Correo electrónico*",
+            "MESSAGE_LABEL": "Comentarios",
+            "REQUIRED_NOTE": "* Campos obligatorios",
+            "SUBMIT_BUTTON": "Enviar",
+            "SUCCESS_MESSAGE": {
+                "LINE_1": "¡Gracias por tu mensaje!",
+                "LINE_2": "Te responderemos lo antes posible."
+            },
+            "ERRORS": "Ha ocurrido un error al enviar el formulario."
+        }
     },
     "MENU": {
-        "ABOUT": "About",
-        "RENTAL": "Rental",
-        "CONTACT": "Contact",
+        "WORK": "Portfolio",
+        "ABOUT": "Nosotros",
+        "RENTAL": "Alquiler",
+        "CONTACT": "Contacto",
         "OPEN_MENU": "Abrir menú",
         "CLOSE_MENU": "Cerrar menú"
     },
     "FOOTER": {
-        "KNOWUS": "Conócenos",
-        "ABOUT": "Nuestros valores",
-        "SERVICES": "Rental",
-        "CONTACT": "Contacto",
-        "PRIVACY": "Política de privacidad",
-        "COOKIES": "Política de cookies",
-        "CONDITIONS": "Condiciones generales",
-        "COPYRIGHT": "Todos los derechos reservados."
+        "NEWSLETTER_TITLE": "Suscríbete a nuestra newsletter",
+        "NEWSLETTER_PLACEHOLDER": "Escribe tu correo",
+        "TAGLINE": "Inclinamos la mirada, elevamos la historia.",
+        "SOCIAL": {
+            "INSTAGRAM": "Instagram",
+            "TIKTOK": "TikTok",
+            "VIMEO": "Vimeo",
+            "YOUTUBE": "YouTube",
+            "LINKEDIN": "LinkedIn"
+        }
     }
 }

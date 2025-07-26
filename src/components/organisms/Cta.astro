@@ -4,6 +4,10 @@ export interface Props {
   long?: boolean;
 }
 const { title, long } = Astro.props;
+import { getI18N } from "@/a18n/index.ts";
+
+const { currentLocale } = Astro;
+const t = getI18N({ currentLocale: currentLocale ?? "es" });
 ---
 
 <section class="pt-16 pb-32">
@@ -22,7 +26,7 @@ const { title, long } = Astro.props;
       href="/contact"
       class="inline-flex items-center gap-5 text-[38px] leading-none"
     >
-      Contact us
+      {t.GLOBAL.CONTACT}
       <svg
         width="18"
         height="18"

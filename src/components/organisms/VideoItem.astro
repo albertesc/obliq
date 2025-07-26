@@ -1,11 +1,16 @@
 ---
 import type { Video } from "@/types/videos";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getI18N } from "@/a18n/index.ts";
 
 interface Props {
   video: Video;
 }
 
 const { video } = Astro.props;
+
+const { currentLocale } = Astro;
+const t = getI18N({ currentLocale: currentLocale ?? "es" });
 ---
 
 <div
@@ -13,7 +18,7 @@ const { video } = Astro.props;
   id={`id-${video.slug}`}
 >
   <a
-    href={`/videos/${video.slug}`}
+    href={getRelativeLocaleUrl(currentLocale ?? "es", `/videos/${video.slug}`)}
     class="block w-full h-full relative overflow-hidden cursor-none video-item"
   >
     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent">

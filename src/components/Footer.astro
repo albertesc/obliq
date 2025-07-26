@@ -1,5 +1,6 @@
 ---
 import { getI18N } from "@/a18n/index.ts";
+import Logo from "@/components/organisms/Logo.astro";
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
@@ -48,8 +49,8 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div class="col-span-1">
-        <p class="text-3xl md:max-w-[12ch] mb-2.5">
-          Subscribe to our newsletter
+        <p class="text-3xl md:max-w-[15ch] mb-2.5">
+          {t.FOOTER.NEWSLETTER_TITLE}
         </p>
         <form
           class="relative flex flex-col gap-2.5 md:max-w-[460px] w-full mb-24"
@@ -57,7 +58,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
           <input
             type="email"
             name="email"
-            placeholder="Here your email"
+            placeholder={t.FOOTER.NEWSLETTER_PLACEHOLDER}
             class="py-2 border-b border-gray-300 focus:outline-none"
             required
           />
@@ -79,44 +80,46 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
           </button>
         </form>
       </div>
+
       <div class="col-span-1">
         <p
-          class="text-center md:text-right text-[38px] uppercase font-black md:max-w-[16ch] italic md:ml-auto mb-24"
+          class="text-center md:text-right text-[38px] uppercase font-black md:max-w-[18ch] italic md:ml-auto mb-24"
         >
-          We tilt the gaze, we elevate the story.
+          {t.FOOTER.TAGLINE}
         </p>
       </div>
     </div>
+
     <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6">
       <span class="col-span-1 opacity-40 text-center md:text-left">
-        © <span class="font-bold italic uppercase">{t.GLOBAL.OWNER}</span>
+        © <Logo size="60" />
         {new Date().getFullYear()}
       </span>
       <div class="col-span-1">
         <ul class="flex flex-wrap gap-6 justify-center md:justify-end">
           <li>
             <a href="#" target="_blank" class="uppercase hover:opacity-40"
-              >Instagram</a
+              >{t.FOOTER.SOCIAL.INSTAGRAM}</a
             >
           </li>
           <li>
             <a href="#" target="_blank" class="uppercase hover:opacity-40"
-              >TikTok</a
+              >{t.FOOTER.SOCIAL.TIKTOK}</a
             >
           </li>
           <li>
             <a href="#" target="_blank" class="uppercase hover:opacity-40"
-              >Vimeo</a
+              >{t.FOOTER.SOCIAL.VIMEO}</a
             >
           </li>
           <li>
             <a href="#" target="_blank" class="uppercase hover:opacity-40"
-              >YouTube</a
+              >{t.FOOTER.SOCIAL.YOUTUBE}</a
             >
           </li>
           <li>
             <a href="#" target="_blank" class="uppercase hover:opacity-40"
-              >LinkedIn</a
+              >{t.FOOTER.SOCIAL.LINKEDIN}</a
             >
           </li>
         </ul>

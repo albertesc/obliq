@@ -1,5 +1,9 @@
 ---
 import { directors } from "@/data/directors.json";
+import { getI18N } from "@/a18n/index.ts";
+
+const { currentLocale } = Astro;
+const t = getI18N({ currentLocale: currentLocale ?? "es" });
 ---
 
 <section>
@@ -7,7 +11,7 @@ import { directors } from "@/data/directors.json";
     <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-28">
       <div class="w-full max-w-[368px]">
         <p class="text-[42px] leading-none">
-          We work for the top directors on the market:
+          {t.ABOUT.DIRECTORS}
         </p>
       </div>
       <div>

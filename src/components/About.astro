@@ -1,9 +1,13 @@
+---
+import { getI18N } from "@/a18n/index.ts";
+
+const { currentLocale } = Astro;
+const t = getI18N({ currentLocale: currentLocale ?? "es" });
+---
+
 <section class="container mx-auto px-4 py-16">
-  <p class="text-4xl font-medium leading-normal">
-    We are an audiovisual production company formed by a versatile and
-    experienced team. We understand the nature of each project and we
-    effectively adapt to your needs, ensuring an agile and quality execution. We
-    bring a fresh and creative look.
+  <p class="text-4xl leading-normal">
+    {t.ABOUT.TEXT}
   </p>
 
   <img
@@ -23,21 +27,12 @@
       />
     </div>
     <p class="text-lg">
-      We believe creative vision means nothing without thoughtful execution. At
-      OBLIQ, we are committed to an intentional, collaborative process that
-      transforms bold ideas into meaningful stories. We champion diverse voices,
-      inclusive perspectives, and creative integrity, because the future
-      deserves to be told by everyone, for everyone. After all… it’s the depth
-      behind the lens that truly matters.
+      {t.ABOUT.TEXT1}
     </p>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 items-end">
     <p class="text-lg">
-      Our manifesto is simple: bold ideas, diverse voices, and stories that
-      shift perspective. Every frame we craft is a stand against the generic.
-      Every collaboration, a dialogue of trust. We are driven by diversity,
-      shaped by experience, and committed to building what’s next.. We don’t
-      just produce content — we shape culture.
+      {t.ABOUT.TEXT2}
     </p>
     <div class="max-w-[368px] w-full ml-auto">
       <img

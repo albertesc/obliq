@@ -23,7 +23,7 @@ const { title } = Astro.props;
     <title>{t.GLOBAL.TITLE} | {title}</title>
     <ClientRouter />
   </head>
-  <body class="flex flex-col min-h-screen text-white bg-black">
+  <body class="flex flex-col min-h-screen text-white bg-black font-medium">
     <slot />
   </body>
 </html>

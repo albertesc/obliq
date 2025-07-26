@@ -4,25 +4,25 @@
             "name": "Arri Alexa Mini",
             "description": "One of the most widely used cameras in the film and advertising industry around the world today, you're on the right page. Countless Hollywood films have been shot on it, such as Dennis Villeneuve's Blade Runner 2049 and Guillermo del Toro's The Shape of Water, the first and last of which was nominated for an Oscar for Best Cinematography.",
             "price": 500,
-            "image": "/images/product-1.jpg"
+            "image": "/images/product-1.png"
         },
         {
             "name": "Arri SR3 HS",
             "description": "One of the most widely used cameras in the film and advertising industry around the world today, you're on the right page. Countless Hollywood films have been shot on it, such as Dennis Villeneuve's Blade Runner 2049 and Guillermo del Toro's The Shape of Water, the first and last of which was nominated for an Oscar for Best Cinematography.",
             "price": 450,
-            "image": "/images/product-2.jpg"
+            "image": "/images/product-2.png"
         },
         {
             "name": "LENSES Cooke S2 Speed Panchro",
             "description": "One of the most widely used cameras in the film and advertising industry around the world today, you're on the right page. Countless Hollywood films have been shot on it, such as Dennis Villeneuve's Blade Runner 2049 and Guillermo del Toro's The Shape of Water, the first and last of which was nominated for an Oscar for Best Cinematography.",
             "price": 280,
-            "image": "/images/product-3.jpg"
+            "image": "/images/product-3.png"
         },
         {
             "name": "Teradek 750 4K LT",
             "description": "One of the most widely used cameras in the film and advertising industry around the world today, you're on the right page. Countless Hollywood films have been shot on it, such as Dennis Villeneuve's Blade Runner 2049 and Guillermo del Toro's The Shape of Water, the first and last of which was nominated for an Oscar for Best Cinematography.",
             "price": 150,
-            "image": "/images/product-4.jpg"
+            "image": "/images/product-4.png"
         }
     ]
 }

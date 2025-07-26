@@ -1,0 +1,77 @@
+{
+    "GLOBAL": {
+        "TITLE": "Obliq",
+        "OWNER": "Obliq",
+        "CONTACT": "Contact us"
+    },
+    "HOME": {
+        "TITLE": "Home",
+        "CTA": "Next one can be yours...",
+        "MARQUEE": [
+            "Our work",
+            "Our work",
+            "Our work",
+            "Our work"
+        ]
+    },
+    "VIDEOS": {
+        "DATE": "Date"
+    },
+    "ABOUT": {
+        "MARQUEE": [
+            "Our directors",
+            "Our directors",
+            "Our directors",
+            "Our directors"
+        ],
+        "TITLE": "About",
+        "CTA": "Brands that have already trusted us",
+        "DIRECTORS": "We work for the top directors on the market:",
+        "TEXT": "We are an audiovisual production company formed by a versatile and experienced team. We understand the nature of each project and we effectively adapt to your needs, ensuring an agile and quality execution. We bring a fresh and creative look.",
+        "TEXT1": "We believe creative vision means nothing without thoughtful execution. At OBLIQ, we are committed to an intentional, collaborative process that transforms bold ideas into meaningful stories. We champion diverse voices, inclusive perspectives, and creative integrity, because the future deserves to be told by everyone, for everyone. After all… it’s the depth behind the lens that truly matters.",
+        "TEXT2": "Our manifesto is simple: bold ideas, diverse voices, and stories that shift perspective. Every frame we craft is a stand against the generic. Every collaboration, a dialogue of trust. We are driven by diversity, shaped by experience, and committed to building what’s next.. We don’t just produce content — we shape culture."
+    },
+    "RENTAL": {
+        "TITLE": "Do you need to rent",
+        "TEXT": "equipment for your shoots?",
+        "CTA": "If you need any other material that you don't see here, please send us an email and we will get it for you."
+    },
+    "CONTACT": {
+        "TITLE": "Let’s talk!",
+        "HEADING": "From sunny valencia with love",
+        "PHONE_LABEL": "Tel. 675 489 980",
+        "EMAIL_LABEL": "info@obliqproductions.com",
+        "FORM": {
+            "NAME_LABEL": "Name",
+            "EMAIL_LABEL": "Email*",
+            "MESSAGE_LABEL": "Message",
+            "REQUIRED_NOTE": "* Required fields",
+            "SUBMIT_BUTTON": "Send",
+            "SUCCESS_MESSAGE": {
+                "LINE_1": "Thanks for your message!",
+                "LINE_2": "We’ll get back to you as soon as possible."
+            },
+            "ERRORS": "An error occurred while sending the form."
+        }
+    },
+    "MENU": {
+        "WORK": "Work",
+        "ABOUT": "About",
+        "RENTAL": "Rental",
+        "CONTACT": "Contact",
+        "OPEN_MENU": "Abrir menú",
+        "CLOSE_MENU": "Cerrar menú"
+    },
+    "FOOTER": {
+        "NEWSLETTER_TITLE": "Subscribe to our newsletter",
+        "NEWSLETTER_PLACEHOLDER": "Here your email",
+        "TAGLINE": "We tilt the gaze, we elevate the story.",
+        "SOCIAL": {
+            "INSTAGRAM": "Instagram",
+            "TIKTOK": "TikTok",
+            "VIMEO": "Vimeo",
+            "YOUTUBE": "YouTube",
+            "LINKEDIN": "LinkedIn"
+        }
+    }
+}
