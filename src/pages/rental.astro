@@ -19,3 +19,31 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
   <Products />
   <Cta title={t.RENTAL.CTA} long />
 </Layout>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initProductAnimations() {
+    const productItems = document.querySelectorAll(".product-item");
+    const productSection = document.getElementById("products");
+
+    gsap.from(productItems, {
+      opacity: 0,
+      y: 30,
+      duration: 0.2,
+      ease: "power2.out",
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: productSection,
+        start: "-=100 center",
+        end: "center -=200",
+        toggleActions: "play reverse play reverse",
+        scrub: 0.5,
+      },
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initProductAnimations);
+</script>
