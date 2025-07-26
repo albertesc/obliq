@@ -6,7 +6,7 @@ import data from "@/data/videos.json";
 const videos: Video[] = data.videos;
 ---
 
-<section class="pb-16">
+<section class="pb-16" id="videos">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {videos.map((video: Video) => <VideoItem video={video} />)}
@@ -16,6 +16,28 @@ const videos: Video[] = data.videos;
 
 <script>
   import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initVideoAnimations() {
+    const videoItems = document.querySelectorAll(".video-item");
+    const videoSection = document.getElementById("videos");
+
+    gsap.from(videoItems, {
+      opacity: 0,
+      y: 30,
+      duration: 0.2,
+      ease: "power2.out",
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: videoSection,
+        start: "-=100 center",
+        end: "center -=200",
+        toggleActions: "play reverse play reverse",
+        scrub: 0.5,
+      },
+    });
+  }
 
   function initCursorBehavior() {
     const cursor = document.getElementById("customCursor")!;
@@ -96,6 +118,11 @@ const videos: Video[] = data.videos;
     });
   }
 
+  initVideoAnimations();
   initCursorBehavior();
-  document.addEventListener("astro:after-swap", initCursorBehavior);
+
+  document.addEventListener("astro:after-swap", () => {
+    initVideoAnimations();
+    initCursorBehavior();
+  });
 </script>

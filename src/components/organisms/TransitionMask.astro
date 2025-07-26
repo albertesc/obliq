@@ -51,7 +51,7 @@ const { enterColor } = Astro.props;
         resolve();
       });
 
-    document.querySelectorAll("a[href]:not(.video-item)").forEach((link) => {
+    document.querySelectorAll("a[href]:not(.link-video)").forEach((link) => {
       const anchor = link as HTMLAnchorElement;
       const url = new URL(anchor.href);
       const isSameOrigin = location.origin === url.origin;
@@ -68,7 +68,11 @@ const { enterColor } = Astro.props;
     });
 
     // si es home o video, no hacer slide out
-    if (location.pathname === "/" || location.pathname.startsWith("/video/")) {
+    if (
+      location.pathname === "/" ||
+      location.pathname === "/es/" ||
+      location.pathname.startsWith("/video/")
+    ) {
       mask.style.transform = "translateY(-100%)";
       return;
     }
