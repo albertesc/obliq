@@ -5,50 +5,68 @@ const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
 ---
 
-<section class="container mx-auto px-4 py-16">
-  <p class="text-4xl leading-normal">
-    {t.ABOUT.TEXT}
-  </p>
-
-  <img
-    src="/images/about-video.jpg"
-    alt="About Us"
-    class="mt-14 aspect-video h-full w-full object-cover"
-  />
+<section class="h-screen">
+  <div
+    class="container h-full mx-auto px-4 py-16 flex items-center justify-center"
+  >
+    <p class="text-lg md:text-4xl leading-normal" id="about-text">
+      {t.ABOUT.TEXT}
+    </p>
+  </div>
 </section>
 
-<section class="container mx-auto px-4 py-16">
-  <div class="grid grid-cols-1 md:grid-cols-2">
-    <div class="max-w-[368px] w-full">
-      <img
-        src="/images/about-1.jpg"
-        alt="About Us Image 1"
-        class="w-full h-full object-cover aspect-square"
-      />
-    </div>
-    <p class="text-lg">
-      {t.ABOUT.TEXT1}
-    </p>
+<section
+  class="h-screen relative flex items-center justify-center"
+  id="about-video-section"
+>
+  <div class="container mx-auto px-4">
+    <video
+      src="/about.mp4"
+      autoplay
+      loop
+      muted
+      class="w-full aspect-video"
+      id="about-video"
+      aria-label="About Video"
+    >
+    </video>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 items-end">
-    <p class="text-lg">
-      {t.ABOUT.TEXT2}
-    </p>
-    <div class="max-w-[368px] w-full ml-auto">
-      <img
-        src="/images/about-2.jpg"
-        alt="About Us Image 2"
-        class="w-full h-full object-cover aspect-square"
-      />
+</section>
+
+<section id="about-content-section">
+  <div class="container mx-auto px-4 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="max-w-[368px] w-full">
+        <img
+          src="/images/about-1.jpg"
+          alt="About Us Image 1"
+          class="w-full h-full object-cover aspect-square about-content-image origin-center"
+        />
+      </div>
+      <p class="text-lg">
+        {t.ABOUT.TEXT1}
+      </p>
     </div>
-  </div>
-  <div>
-    <div class="max-w-[368px] w-full mx-auto mt-24">
-      <img
-        src="/images/about-3.jpg"
-        alt="About Us Image 3"
-        class="w-full h-full object-cover aspect-square"
-      />
+    <div class="grid grid-cols-1 md:grid-cols-2 items-end">
+      <p class="text-lg">
+        {t.ABOUT.TEXT2}
+      </p>
+      <div class="max-w-[368px] w-full ml-auto">
+        <img
+          src="/images/about-2.jpg"
+          alt="About Us Image 2"
+          class="w-full h-full object-cover aspect-square about-content-image origin-center"
+        />
+      </div>
+    </div>
+    <div>
+      <div class="max-w-[368px] w-full mx-auto mt-24">
+        <img
+          src="/images/about-3.jpg"
+          alt="About Us Image 3"
+          class="w-full h-full object-cover aspect-square about-content-image origin-center"
+        />
+      </div>
     </div>
   </div>
 </section>

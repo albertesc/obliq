@@ -6,7 +6,7 @@ const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
 ---
 
-<section>
+<section id="directors-section">
   <div class="container mx-auto px-4 py-16">
     <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-28">
       <div class="w-full max-w-[368px]">
@@ -14,11 +14,22 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
           {t.ABOUT.DIRECTORS}
         </p>
       </div>
-      <div>
-        <ul>
+      <div class="relative">
+        <ul class="opacity-50">
           {
             directors.map((director) => (
-              <li class="border-t border-black py-6 text-[38px] font-black italic uppercase">
+              <li class="py-6 text-[38px] font-black italic uppercase director-name-hidden relative">
+                <span class="border-t opacity-30 border-black absolute w-full top-0 left-0" />
+                {director.name}
+              </li>
+            ))
+          }
+        </ul>
+        <ul class="absolute top-0 left-0 w-full h-full">
+          {
+            directors.map((director) => (
+              <li class="py-6 text-[38px] font-black italic uppercase director-name relative">
+                <span class="border-t border-black absolute w-full top-0 left-0 director-name-line" />
                 {director.name}
               </li>
             ))

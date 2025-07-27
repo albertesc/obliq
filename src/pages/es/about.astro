@@ -19,3 +19,146 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
   <Marquee small texts={brands} />
   <Cta title={t.ABOUT.CTA} />
 </Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger, SplitText } from "gsap/all";
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  const aboutText = document.getElementById("about-text");
+
+  let split;
+  SplitText.create(aboutText, {
+    type: "words,lines",
+    linesClass: "line",
+    autoSplit: true,
+    mask: "lines",
+    onSplit: (self) => {
+      split = gsap.from(self.lines, {
+        duration: 1,
+        yPercent: 100,
+        opacity: 0,
+        stagger: 0.2,
+        delay: 1,
+        ease: "expo.out",
+      });
+      return split;
+    },
+  });
+
+  const video = document.getElementById("about-video");
+  const videoSection = document.getElementById("about-video-section");
+
+  const tl = gsap
+    .timeline()
+    .to(video, {
+      scale: 3,
+      duration: 5,
+      delay: -1,
+    })
+    .to(video, {
+      scale: 1,
+      duration: 5,
+    });
+
+  ScrollTrigger.create({
+    animation: tl,
+    trigger: videoSection,
+    start: "top top",
+    end: "+=2000",
+    scrub: 0.5,
+    pin: true,
+    pinSpacing: true,
+  });
+
+  const aboutContentSection = document.getElementById("about-content-section");
+  const aboutContentImages = document.querySelectorAll(".about-content-image");
+
+  const masterTl = gsap.timeline();
+
+  aboutContentImages.forEach((image, index) => {
+    const singleTl = gsap.timeline();
+
+    singleTl
+      .from(image, {
+        y: 300,
+        duration: 1,
+      })
+      .to(
+        image,
+        {
+          scaleY: 2,
+          skewX: -20,
+          duration: 1,
+        },
+        "<"
+      )
+      .to(image, {
+        skewX: 0,
+        scaleY: 1,
+        y: 0,
+        duration: 1,
+      });
+
+    masterTl.add(singleTl, index * 0.8);
+  });
+
+  ScrollTrigger.create({
+    animation: masterTl,
+    trigger: aboutContentSection,
+    start: "top center",
+    end: "bottom center",
+    scrub: true,
+  });
+
+  const directorNames = document.querySelectorAll(".director-name");
+  const directorNameHidden = document.querySelectorAll(".director-name-hidden");
+  const directorsSection = document.getElementById("directors-section");
+  const directorNameLine = document.querySelectorAll(".director-name-line");
+
+  const splitDirectors = Array.from(directorNames).map((name) =>
+    SplitText.create(name, {
+      type: "chars",
+      charsClass: "director-letter",
+    })
+  );
+
+  SplitText.create(directorNameHidden, {
+    type: "chars",
+    charsClass: "director-letter-hidden",
+  });
+
+  const directorTl = gsap.timeline({
+    defaults: { ease: "power2.out" },
+  });
+
+  splitDirectors.forEach((split, index) => {
+    directorTl.from(
+      split.chars,
+      {
+        opacity: 0,
+        duration: 0.05,
+        stagger: 0.05,
+      },
+      index === 0 ? 0 : ">0.5"
+    );
+
+    directorTl.from(
+      directorNameLine[index],
+      {
+        scaleX: 0,
+        transformOrigin: "left center",
+        duration: 0.4,
+      },
+      ">-0.2"
+    );
+  });
+
+  ScrollTrigger.create({
+    animation: directorTl,
+    trigger: directorsSection,
+    start: "top center",
+    end: "bottom center",
+    scrub: true,
+  });
+</script>
