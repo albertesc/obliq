@@ -1,6 +1,7 @@
 ---
 import { getI18N } from "@/a18n/index.ts";
 import Logo from "@/components/organisms/Logo.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
@@ -93,33 +94,40 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
     <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6">
       <span class="col-span-1 opacity-40 text-center md:text-left">
         © <Logo size="60" />
-        {new Date().getFullYear()}
+        {new Date().getFullYear()} /
+        <a
+          href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
+          class="underline">{t.FOOTER.LEGAL}</a
+        >
       </span>
       <div class="col-span-1">
         <ul class="flex flex-wrap gap-6 justify-center md:justify-end">
           <li>
-            <a href="#" target="_blank" class="uppercase hover:opacity-40"
-              >{t.FOOTER.SOCIAL.INSTAGRAM}</a
+            <a
+              href="https://www.instagram.com/obliqproductions/"
+              target="_blank"
+              class="uppercase hover:opacity-40">{t.FOOTER.SOCIAL.INSTAGRAM}</a
             >
           </li>
           <li>
-            <a href="#" target="_blank" class="uppercase hover:opacity-40"
-              >{t.FOOTER.SOCIAL.TIKTOK}</a
+            <a
+              href="https://www.tiktok.com/@obliqproductions"
+              target="_blank"
+              class="uppercase hover:opacity-40">{t.FOOTER.SOCIAL.TIKTOK}</a
             >
           </li>
           <li>
-            <a href="#" target="_blank" class="uppercase hover:opacity-40"
-              >{t.FOOTER.SOCIAL.VIMEO}</a
+            <a
+              href="https://vimeo.com/obliproductions"
+              target="_blank"
+              class="uppercase hover:opacity-40">{t.FOOTER.SOCIAL.VIMEO}</a
             >
           </li>
           <li>
-            <a href="#" target="_blank" class="uppercase hover:opacity-40"
-              >{t.FOOTER.SOCIAL.YOUTUBE}</a
-            >
-          </li>
-          <li>
-            <a href="#" target="_blank" class="uppercase hover:opacity-40"
-              >{t.FOOTER.SOCIAL.LINKEDIN}</a
+            <a
+              href="https://www.linkedin.com/company/obliq-productions"
+              target="_blank"
+              class="uppercase hover:opacity-40">{t.FOOTER.SOCIAL.LINKEDIN}</a
             >
           </li>
         </ul>
