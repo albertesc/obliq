@@ -43,7 +43,8 @@
         "EMAIL_LABEL": "info@obliqproductions.com",
         "FORM": {
             "NAME_LABEL": "Name",
-            "EMAIL_LABEL": "Email*",
+            "EMAIL_LABEL": "Email address *",
+            "COMPANY_LABEL": "Company",
             "MESSAGE_LABEL": "Message",
             "REQUIRED_NOTE": "* Required fields",
             "SUBMIT_BUTTON": "Send",

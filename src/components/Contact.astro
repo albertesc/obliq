@@ -3,6 +3,7 @@ import Input from "@/components/atoms/Input.astro";
 import Textarea from "@/components/atoms/Textarea.astro";
 import { actions } from "astro:actions";
 import { getI18N } from "@/a18n/index.ts";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
@@ -10,7 +11,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 
 <section
   id="contact"
-  class="bg-black py-10 z-10 relative"
+  class="bg-black pt-10 pb-20 z-10 relative"
   role="region"
   aria-labelledby="contact-heading"
   style="scroll-margin-top: 80px"
@@ -82,32 +83,105 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 
           <Input label={t.CONTACT.FORM.NAME_LABEL} name="name" />
           <Input label={t.CONTACT.FORM.EMAIL_LABEL} name="email" />
+          <Input label={t.CONTACT.FORM.COMPANY_LABEL} name="company" />
           <Textarea label={t.CONTACT.FORM.MESSAGE_LABEL} name="message" />
 
-          <small class="block mb-6">{t.CONTACT.FORM.REQUIRED_NOTE}</small>
+          <div class="flex items-start gap-2 mb-4 mt-4">
+            <div class="flex-none relative">
+              <input
+                type="checkbox"
+                name="legal"
+                id="legal"
+                class="peer appearance-none w-4.5 h-4.5 border bg-white/20 checked:bg-white checked:text-black text-transparent flex items-center justify-center"
+                required
+                aria-required="true"
+              />
+              <svg
+                class="w-4.5 h-4.5 absolute top-0 left-0 pointer-events-none text-black opacity-0 peer-checked:opacity-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
 
-          <div
-            class="success hidden rounded mb-4 bg-green-200 text-green-600 p-4 border border-green-400"
-          >
-            <p class="mb-3">{t.CONTACT.FORM.SUCCESS_MESSAGE.LINE_1}</p>
-            <p>{t.CONTACT.FORM.SUCCESS_MESSAGE.LINE_2}</p>
+            <label for="legal" class="text-sm">
+              I have read and agree with
+              <a
+                href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
+                class="underline"
+              >
+                {t.FOOTER.LEGAL}
+              </a>
+              . *
+            </label>
           </div>
 
-          <button class="text-3xl flex items-center gap-2 cursor-pointer">
-            {t.CONTACT.FORM.SUBMIT_BUTTON}
-            <svg
-              width="19"
-              height="18"
-              viewBox="0 0 19 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.6156 0.839999L18.1756 9.04L12.6156 17.32H9.13563L14.3756 9.04L9.13563 0.839999H12.6156ZM15.1756 7.6V10.52H0.695625V7.6H15.1756Z"
-                fill="white"></path>
-            </svg>
-          </button>
+          <div class="flex items-start gap-2 mb-4">
+            <div class="flex-none relative">
+              <input
+                type="checkbox"
+                name="subscribe"
+                id="subscribe"
+                class="peer appearance-none w-4.5 h-4.5 border bg-white/20 checked:bg-white checked:text-black text-transparent flex items-center justify-center"
+                required
+                aria-required="true"
+              />
+              <svg
+                class="w-4.5 h-4.5 absolute top-0 left-0 pointer-events-none text-black opacity-0 peer-checked:opacity-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+
+            <label for="subscribe" class="text-sm">
+              I agree to receive communications from OBLIQ. I confirm that I
+              have reviewed and accepted the
+              <a
+                href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
+                class="underline"
+              >
+                {t.FOOTER.LEGAL}
+              </a>. *
+            </label>
+          </div>
         </form>
+
+        <small class="block mb-6">{t.CONTACT.FORM.REQUIRED_NOTE}</small>
+
+        <div
+          class="success hidden rounded mb-4 bg-green-200 text-green-600 p-4 border border-green-400"
+        >
+          <p class="mb-3">{t.CONTACT.FORM.SUCCESS_MESSAGE.LINE_1}</p>
+          <p>{t.CONTACT.FORM.SUCCESS_MESSAGE.LINE_2}</p>
+        </div>
+
+        <button class="text-3xl flex items-center gap-2 cursor-pointer">
+          {t.CONTACT.FORM.SUBMIT_BUTTON}
+          <svg
+            width="19"
+            height="18"
+            viewBox="0 0 19 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.6156 0.839999L18.1756 9.04L12.6156 17.32H9.13563L14.3756 9.04L9.13563 0.839999H12.6156ZM15.1756 7.6V10.52H0.695625V7.6H15.1756Z"
+              fill="white"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
