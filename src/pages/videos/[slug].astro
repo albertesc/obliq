@@ -1,12 +1,12 @@
 ---
 import VideoLayout from "@/layouts/Video.astro";
-import type { Video } from "@/types/videos";
 import Plus from "@/assets/icons/plus.svg";
-import data from "@/data/videos.json";
+import { getVideoBySlug } from "@/services/videos";
 import { getI18N } from "@/a18n/index.ts";
 
-const slug = Astro.params.slug as string;
-const video = data.videos.find((v) => v.slug === slug) as Video;
+const params = Astro.params;
+const slug = params.slug;
+const video = await getVideoBySlug(slug as string);
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "en" });
 ---
@@ -25,7 +25,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "en" });
       <div
         class="relative w-full h-full"
         data-video-type="vimeo"
-        data-video-id="1097798849"
+        data-video-id={video.videoId}
       >
         <img
           src={video.image}

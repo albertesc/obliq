@@ -1,9 +1,9 @@
 ---
 import type { Video } from "@/types/videos";
 import VideoItem from "./organisms/VideoItem.astro";
-import data from "@/data/videos.json";
+import { getAllVideos } from "@/services/videos";
 
-const videos: Video[] = data.videos;
+const videos: Video[] = await getAllVideos();
 ---
 
 <section class="pb-16" id="videos">
