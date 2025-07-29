@@ -4,11 +4,11 @@ export async function getAllVideos() {
   const data = fetch(`${API_URL}videos/all.json`);
   try {
     const response = await fetch(`${API_URL}videos/all.json`);
-    console.log(`Fetching all videos from: ${API_URL}videos/all.json`);
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (err) {
     return [];
