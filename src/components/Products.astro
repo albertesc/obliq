@@ -1,6 +1,7 @@
 ---
 import { products } from "@/data/products.json";
 import { getI18N } from "@/a18n/index.ts";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
@@ -27,7 +28,10 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
               : product.description}
           </p>
           <a
-            href={`/contact?product=${product.name}`}
+            href={
+              getRelativeLocaleUrl(currentLocale ?? "es", `/contact`) +
+              `?product=${product.name}`
+            }
             class="inline-flex items-center gap-5 text-[38px] leading-none"
           >
             {t.RENTAL.BUTTON}

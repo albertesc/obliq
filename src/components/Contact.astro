@@ -81,7 +81,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
             {t.CONTACT.FORM.ERRORS}
           </div>
 
-          <div id="product" class="mb-4">
+          <div id="product" class="mb-4 hidden">
             Estás interesado en alquilar: <strong></strong><br />
             Escríbenos para más información.
           </div>
@@ -199,6 +199,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
     if (value) {
       const input = document.querySelector("#product") as HTMLDivElement | null;
       if (input) {
+        input.classList.remove("hidden");
         input.querySelector("strong")!.textContent = value;
       }
     }
