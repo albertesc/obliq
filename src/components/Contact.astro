@@ -82,7 +82,8 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
           </div>
 
           <div id="product" class="mb-4">
-            Estoy interesado en alquilar: <span></span>
+            Estas interesado en alquilar: <strong></strong><br />
+            Escríbenos para más información.
           </div>
           <Input label={t.CONTACT.FORM.NAME_LABEL} name="name" />
           <Input label={t.CONTACT.FORM.EMAIL_LABEL} name="email" />
@@ -198,7 +199,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
     if (value) {
       const input = document.querySelector("#product") as HTMLDivElement | null;
       if (input) {
-        input.querySelector("span")!.textContent = value;
+        input.querySelector("strong")!.textContent = value;
       }
     }
     const form = document.querySelector(
