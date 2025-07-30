@@ -188,6 +188,10 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 </section>
 
 <script>
+  const params = new URLSearchParams(window.location.search);
+  const value = params.get("product");
+  console.log("Query param 'product':", value);
+
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(
       "#contact form"

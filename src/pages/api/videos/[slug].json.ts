@@ -46,7 +46,7 @@ export const GET: APIRoute = async ({ params }) => {
             const vimeoRes = await fetch(`https://vimeo.com/api/v2/video/${videoId}.json`);
             const vimeoData = await vimeoRes.json();
             thumbnail = vimeoData[0]?.thumbnail_large || '';
-            image = vimeoData[0]?.thumbnail_large.replace("640", "1900") || '';
+            image = vimeoData[0]?.thumbnail_large.replace("640", "1440") || '';
           } catch (err) {
             console.warn(`No se pudo obtener imagen de Vimeo para el video ID: ${videoId}`);
           }

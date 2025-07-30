@@ -1,28 +1,393 @@
 {
     "products": [
         {
-            "name": "Arri Alexa Mini",
-            "description": "One of the most widely used cameras in the film and advertising industry around the world today, you're on the right page. Countless Hollywood films have been shot on it, such as Dennis Villeneuve's Blade Runner 2049 and Guillermo del Toro's The Shape of Water, the first and last of which was nominated for an Oscar for Best Cinematography.",
-            "price": 500,
-            "image": "/images/product-1.png"
+            "name": "Sony FX6",
+            "description": "The Sony FX6 is a full-frame cinema camera designed for run and gun shooting. It features a 10.2MP sensor, S Cinetone color science, 4K up to 120 fps, 15+ stops of dynamic range, Dual Base ISO (800/12800), Fast Hybrid AF with real time Eye AF, and internal 10 bit 4:2:2 recording—ideal for professional cinematic work.",
+            "description_es": "Alquila la Sony FX6 — Cámara de cine Full Frame. Lánzate a producir en la localización más remota gracias a su compacto tamaño y su sensor de 10.2 MP. Con S Cinetone para una piel natural, 4K 120 fps, Dual Base ISO (800/12800), 15+ stops de rango dinámico y Fast Hybrid AF con detección de rostro y enfoque ocular en tiempo real. Grabación interna 10 bits 4:2:2. Perfecta para producciones profesionales.",
+            "price": 110,
+            "image": "/images/product-sony-fx6.png",
+            "specs": [
+                "10.2MP 4K Full-Frame CMOS sensor",
+                "Recording formats: DCI 4K 60p, UHD 4K 120p, Full HD 240p",
+                "15+ stops of dynamic range (S-Log3 EI)",
+                "Dual base ISO: 800 / 12,800 (extended up to ISO 409,600)",
+                "Phase Detection AF with Face Tracking & Eye Autofocus",
+                "S-Cinetone, S-Log3, and HLG picture profiles",
+                "Internal 10-bit 4:2:2 XAVC-I and 16-bit RAW output",
+                "Dual media slots: CFexpress Type A & SDXC",
+                "Perfectly balanced between image quality, speed, and flexibility, the FX6 is built to handle any environment, from controlled studio sets to demanding run-and-gun scenarios."
+            ],
+            "specs_es": [
+                "Sensor CMOS Full Frame 4K de 10,2 MP",
+                "Formatos de grabación: DCI 4K 60p, UHD 4K 120p, Full HD 240p",
+                "Más de 15 pasos de rango dinámico (S-Log3 EI)",
+                "ISO base dual: 800 / 12.800 (extensible hasta 409.600)",
+                "Enfoque automático con detección de fase, rostros y ojos",
+                "Perfiles de imagen: S-Cinetone, S-Log3 y HLG",
+                "Grabación interna 10 bits 4:2:2 XAVC-I y salida RAW 16 bits",
+                "Ranuras dobles para CFexpress Tipo A y SDXC",
+                "Equilibrio perfecto entre calidad, velocidad y flexibilidad para cualquier entorno"
+            ]
         },
         {
-            "name": "Arri SR3 HS",
-            "description": "One of the most widely used cameras in the film and advertising industry around the world today, you're on the right page. Countless Hollywood films have been shot on it, such as Dennis Villeneuve's Blade Runner 2049 and Guillermo del Toro's The Shape of Water, the first and last of which was nominated for an Oscar for Best Cinematography.",
-            "price": 450,
-            "image": "/images/product-2.png"
+            "name": "Sony FE 16-35mm F2.8 GM II",
+            "description": "This Sony FE 16-35 mm F2.8 GM II ultra wide zoom lens offers corner to corner sharpness, a constant f/2.8 aperture, Nano AR Coating II to reduce flare and ghosting, and four XD linear motors for fast, precise autofocus—perfect for landscape, architecture, and event filming.",
+            "description_es": "El Sony FE 16-35 mm F2.8 GM II es un objetivo zoom gran angular para cine y fotografía profesionales. Cuenta con apertura constante f/2.8, recubrimiento Nano AR II para reducir reflejos y fantasmas, y cuatro motores lineales XD para un enfoque rápido y silencioso. Ofrece nitidez de esquina a esquina y un bokeh suave incluso con poca luz.",
+            "price": 40,
+            "image": "/images/product-sony-16-35.png",
+            "specs": [
+                "Focal Length: 16-35mm",
+                "Max Aperture: f/2.8 constant",
+                "Format: Full-frame (E-mount)",
+                "G Master II optics: Superior sharpness & minimal distortion",
+                "Advanced linear AF motors: Fast, silent, reliable",
+                "Minimum focus distance: 0.22m",
+                "Weight: Only 547g (lighter and more compact than original GM)"
+            ],
+            "specs_es": [
+                "Distancia focal: 16-35 mm",
+                "Apertura máxima: f/2.8 constante",
+                "Formato: Full Frame (montura E)",
+                "Óptica G Master II: nitidez superior y mínima distorsión",
+                "Motores AF lineales avanzados: rápidos, silenciosos y fiables",
+                "Distancia mínima de enfoque: 0,22 m",
+                "Peso: solo 547 g (más ligero y compacto que el GM original)"
+            ]
         },
         {
-            "name": "LENSES Cooke S2 Speed Panchro",
-            "description": "One of the most widely used cameras in the film and advertising industry around the world today, you're on the right page. Countless Hollywood films have been shot on it, such as Dennis Villeneuve's Blade Runner 2049 and Guillermo del Toro's The Shape of Water, the first and last of which was nominated for an Oscar for Best Cinematography.",
-            "price": 280,
-            "image": "/images/product-3.png"
+            "name": "Sony FE 28-135mm F4 G OSS",
+            "description": "The Sony FE 28-135 mm F4 G OSS is a professional power zoom lens with smooth, quiet zoom and autofocus. Its constant f/4 aperture, advanced aspherical elements, ED glass, Nano AR Coating, and Optical SteadyShot image stabilization make it ideal for documentary and run and gun projects.",
+            "description_es": "El Sony FE 28-135 mm F4 G OSS es un objetivo zoom de potencia profesional para vídeo. Cuenta con apertura constante f/4, estabilización Optical SteadyShot, recubrimiento Nano AR para mayor claridad, elementos asféricos y cristal ED. Ideal para documentales y rodajes run and gun.",
+            "price": 25,
+            "image": "/images/product-sony-28-135.png",
+            "specs": [
+                "Focal length: 28-135mm",
+                "Constant aperture: f/4",
+                "Power Zoom (PZ): Smooth servo-controlled zoom for cinematic moves",
+                "Full-frame E-mount compatibility",
+                "Parfocal design: Maintains focus while zooming",
+                "Optical SteadyShot (OSS): Built-in image stabilization",
+                "Smooth iris control with de-click option",
+                "Weight: 1215g - Solid and balanced for pro setups"
+            ],
+            "specs_es": [
+                "Distancia focal: 28-135 mm",
+                "Apertura constante: f/4",
+                "Zoom motorizado (PZ): movimientos cinematográficos suaves",
+                "Compatible con montura E de fotograma completo",
+                "Diseño parfocal: mantiene el enfoque al hacer zoom",
+                "Estabilización de imagen Optical SteadyShot (OSS)",
+                "Control de iris suave con opción de clic desactivado",
+                "Peso: 1215 g - sólido y equilibrado para producciones profesionales"
+            ]
         },
         {
-            "name": "Teradek 750 4K LT",
-            "description": "One of the most widely used cameras in the film and advertising industry around the world today, you're on the right page. Countless Hollywood films have been shot on it, such as Dennis Villeneuve's Blade Runner 2049 and Guillermo del Toro's The Shape of Water, the first and last of which was nominated for an Oscar for Best Cinematography.",
-            "price": 150,
-            "image": "/images/product-4.png"
+            "name": "DZOFilm Pictor 20-55mm T2.8",
+            "description": "The DZOFilm Pictor 20-55 mm T2.8 is a Super 35 cinema zoom lens offering a wide range of focal lengths, making it ideal for interviews, documentaries, and narrative work. It features a constant T2.8 aperture, cinematic image quality, minimal breathing, and a parfocal design that maintains focus throughout the zoom range. Each lens has accurate color rendition and robust mechanical design.",
+            "description_es": "El DZOFilm Pictor 20 55 mm T2.8 es un zoom cinematográfico Super 35 con apertura constante T2.8, diseño parfocal y construcción robusta. Ofrece mínima respiración, imágenes nítidas y un bokeh cinematográfico, ideal para entrevistas, documentales y producciones narrativas.",
+            "price": 45,
+            "image": "/images/product-dzofilm-pictor-20-55.png",
+            "specs": [
+                "Focal Length: 25mm",
+                "Maximum Aperture: T2.1",
+                "Image Circle: Covers full-frame sensors (up to VistaVision)",
+                "Lens Mount: PL mount (EF mount available with adapter)",
+                "Front Diameter: 95mm",
+                "Focus Rotation: 270°",
+                "Weight: Approx. 800g",
+                "Consistent color matching with other Vespid primes"
+            ],
+            "specs_es": [
+                "Distancia focal: 25 mm",
+                "Apertura máxima: T2.1",
+                "Círculo de imagen: cubre sensores Full Frame (hasta VistaVision)",
+                "Montura: PL (compatible con montura EF mediante adaptador)",
+                "Diámetro frontal: 95 mm",
+                "Rotación de enfoque: 270°",
+                "Peso: Aprox. 800 g",
+                "Coincidencia de color precisa con otras ópticas Vespid"
+            ]
+        },
+        {
+            "name": "DZOFilm Vespid 50mm T2.1",
+            "description": "The DZOFilm Vespid Prime 50 mm T2.1 is a sharp, full-frame cinema prime lens offering excellent contrast, beautiful bokeh, minimal distortion, and a fast T2.1 aperture for low-light and shallow-depth-of-field work in narrative, commercial, and music video productions.",
+            "description_es": "El DZOFilm Vespid Prime 50 mm T2.1 es un objetivo de fotograma completo con recubrimiento multicapa que ofrece reproducción de color precisa. Su apertura rápida T2.1 y diseño sin respiración proporcionan un bokeh suave y un rendimiento constante en todo el rango, ideal para producciones de alta gama.",
+            "price": 45,
+            "image": "/images/product-dzofilm-vespid-50.png",
+            "specs": [
+                "Focal Length: 50mm",
+                "Maximum Aperture: T2.1",
+                "Format: Full-frame (covers up to VistaVision)",
+                "Lens Mount: PL mount (EF mount optional via adapter)",
+                "Front Diameter: 95mm",
+                "Focus Rotation: 270°",
+                "Weight: Approx. 800g",
+                "Color-matched across the Vespid Prime series"
+            ],
+            "specs_es": [
+                "Distancia focal: 50 mm",
+                "Apertura máxima: T2.1",
+                "Formato: Full Frame (hasta VistaVision)",
+                "Montura: PL (opcional a EF mediante adaptador)",
+                "Diámetro frontal: 95 mm",
+                "Rotación de enfoque: 270°",
+                "Peso: Aprox. 800 g",
+                "Colores homogéneos en toda la serie Vespid Prime"
+            ]
+        },
+        {
+            "name": "Zhiyun Crane 3S Pro",
+            "description": "The Zhiyun Crane 3S Pro is a heavy duty 3 axis gimbal stabilizer capable of supporting large camera rigs. It features a detachable handle, multi functional ports, upgraded motors, and intuitive controls for professional broadcast and cinema use.",
+            "description_es": "El Zhiyun Crane 3S Pro es un estabilizador profesional de 3 ejes para cargas pesadas. Cuenta con motores de alto par, agarre versátil, múltiples puertos y un diseño modular que soporta rigs grandes en rodajes cinematográficos y de televisión.",
+            "price": 65,
+            "image": "/images/product-zhiyun-crane-3s-pro.png",
+            "specs": [
+                "Payload Capacity: Up to 6.5 kg (14.3 lbs)",
+                "Battery Life: Up to 12 hours (with Pro batteries and external power option)",
+                "Detachable SmartSling & EasySling handles for ergonomic versatility",
+                "Expandable via TransMount ecosystem (focus motors, wireless video, etc.)",
+                "55° tilted roll axis for unobstructed view",
+                "Intuitive control panel with OLED screen",
+                "Compatibility: RED, ARRI, Canon C-series, Sony FX6/FX3, DSLRs, mirrorless",
+                "Includes quick release plate, tripod base, cables, focus motor, and hard case"
+            ],
+            "specs_es": [
+                "Carga máxima: hasta 6,5 kg",
+                "Autonomía: hasta 12 horas (con baterías Pro y opción de alimentación externa)",
+                "Mangos desmontables SmartSling y EasySling para mayor ergonomía",
+                "Expansible mediante sistema TransMount (motores de enfoque, vídeo inalámbrico, etc.)",
+                "Eje de balanceo inclinado 55° para mejor visibilidad",
+                "Panel de control intuitivo con pantalla OLED",
+                "Compatibilidad: RED, ARRI, Canon C-series, Sony FX6/FX3, DSLR, sin espejo",
+                "Incluye: placa de liberación rápida, base trípode, cables, motor de enfoque y maleta rígida"
+            ]
+        },
+        {
+            "name": "Tilta TS-T20-B-V",
+            "description": "The Tilta TS-T20-B-V is a comprehensive cage system for the Sony FX6, providing 360° protection, multiple 1/4\" and 3/8\" mounting points, dual rod support, and a quick-release NATO rail for follow focus, matte box, and accessory integration.",
+            "description_es": "El Tilta TS T20 B V es una jaula completa para Sony FX6 con protección de 360°, múltiples puntos de montaje 1/4\" y 3/8\", soportes de varilla duales y riel NATO para integrar follow focus, matte box y accesorios de forma rápida.",
+            "price": null,
+            "image": "/images/product-tilta-ts-t20-b-v.png",
+            "specs": [
+                "Multi-Functional Top Plate: Accommodates the FX6’s original top handle and includes dual 15mm LWS rod adapters for mounting accessories above the lens.",
+                "Quick Release Baseplate: Features front and rear 15mm LWS rod support, ARRI-compatible rosettes for attaching handles or extensions, and integrates with Tilta and ARRI standard dovetail plates.",
+                "Side Arm: Provides additional protection and multiple 1/4”-20 and 3/8”-16 threaded holes with locating pins for mounting accessories like monitors, microphones, or wireless transmitters.",
+                "V-Mount Battery Plate: Attaches directly to the FX6’s battery slot, offering power outputs including 2x 14.8V P-Tap ports, 1x 14.8V 2-pin LEMO port, and 1x 5V USB port to power the camera and accessories."
+            ],
+            "specs_es": [
+                "Placa superior multifuncional: compatible con el asa superior original de la FX6 e incluye adaptadores de varilla LWS de 15 mm dobles para montar accesorios por encima del objetivo.",
+                "Base de liberación rápida: incluye soporte frontal y trasero para varillas LWS de 15 mm, rosetas compatibles con ARRI para montar asas o extensiones, e integración con placas tipo cola de milano estándar Tilta y ARRI.",
+                "Brazo lateral: añade protección lateral y múltiples orificios roscados 1/4”-20 y 3/8”-16 con pines de ubicación para montar accesorios como monitores, micrófonos o transmisores inalámbricos.",
+                "Placa de batería V-Mount: se conecta directamente a la ranura de batería de la FX6 y ofrece salidas de alimentación como 2 puertos P-Tap de 14.8V, 1 puerto LEMO de 2 pines a 14.8V y 1 puerto USB de 5V para alimentar la cámara y accesorios."
+            ]
+        },
+        {
+            "name": "Manfrotto MVH502A + 546BK",
+            "description": "The Manfrotto MVH502A fluid head paired with the 546BK aluminum tripod delivers smooth, precise pan/tilt movements and rock solid support. Its ergonomic controls and 75 mm bowl make it a go to solution for professional video shoots.",
+            "description_es": "El cabezal fluido Manfrotto MVH502A y el trípode 546BK ofrecen movimientos pan/tilt suaves y precisos con una base de 75 mm. Su diseño robusto y controles ergonómicos lo convierten en la opción ideal para grabaciones de vídeo profesionales.",
+            "price": 25,
+            "image": "/images/product-manfrotto-mvh502a-546bk.png",
+            "specs": [
+                "Fluid Video Head (MVH502A): Offers smooth pan and tilt movements with adjustable drag settings, suitable for dynamic shooting scenarios.",
+                "Counterbalance System: Supports up to 4 kg (8.8 lbs), accommodating a range of camera configurations.",
+                "Load Capacity: Handles equipment up to 7 kg (15.4 lbs), making it compatible with various professional camcorders and DSLRs.",
+                "75mm Half Ball Mount: Facilitates quick leveling adjustments, essential for efficient setup."
+            ],
+            "specs_es": [
+                "Cabezal fluido de vídeo (MVH502A): ofrece movimientos suaves de paneo e inclinación con ajuste de arrastre, ideal para tomas dinámicas.",
+                "Sistema de contrapeso: soporta hasta 4 kg (8.8 lbs), adaptándose a distintas configuraciones de cámara.",
+                "Capacidad de carga: maneja equipos de hasta 7 kg (15.4 lbs), compatible con videocámaras profesionales y cámaras DSLR.",
+                "Montura de media bola de 75 mm: facilita ajustes rápidos de nivelación, esenciales para una configuración eficiente."
+            ]
+        },
+        {
+            "name": "SmallRig Magic Arm",
+            "description": "The SmallRig Magic Arm is an adjustable mounting arm with multiple 1/4\" 20 and cold shoe mounts. It’s perfect for attaching monitors, lights, microphones, and other accessories, offering 360° rotation and secure locking knobs.",
+            "description_es": "El SmallRig Magic Arm es un brazo articulado con múltiples puntos de montaje 1/4\" 20 y zapata fría. Permite fijar monitores, luces y micrófonos con ángulo ajustable y bloqueo seguro.",
+            "price": 3,
+            "image": "/images/product-smallrig-magic-arm.png",
+            "specs": [
+                "Dual Ball Heads with 1/4\"-20 Screws: Provides 360-degree rotation and flexibility, allowing for precise angle adjustments.",
+                "Durable Construction: Made from high-quality aluminum alloy, ensuring robustness and longevity.",
+                "Compact and Lightweight: Its sleek design makes it easy to integrate into various setups without adding significant weight.",
+                "Secure Locking Mechanism: Equipped with a central locking knob to ensure stability and prevent unwanted movement.",
+                "Wide Compatibility: Ideal for attaching to camera cages, rigs, tripods, and other mounting systems."
+            ],
+            "specs_es": [
+                "Cabezas de bola dobles con tornillos de 1/4\"-20: permiten rotación de 360 grados y ofrecen gran flexibilidad para ajustes de ángulo precisos.",
+                "Construcción duradera: fabricado en aleación de aluminio de alta calidad, lo que asegura resistencia y larga vida útil.",
+                "Diseño compacto y ligero: su estructura estilizada facilita la integración en distintas configuraciones sin añadir peso significativo.",
+                "Mecanismo de bloqueo seguro: equipado con una perilla central que garantiza estabilidad y evita movimientos no deseados.",
+                "Compatibilidad amplia: ideal para montar en cages de cámara, rigs, trípodes y otros sistemas de soporte."
+            ]
+        },
+        {
+            "name": "FEELWORLD LUT 6S (Con SDI)",
+            "description": "The FEELWORLD LUT6S is a professional 6\" field monitor with 3D LUT support, SDI/HDMI loop out, HDR mode, waveform, vectorscope, and dual battery plates. Its compact design and high resolution display make it ideal for on set monitoring.",
+            "description_es": "El FEELWORLD LUT6S es un monitor de campo de 6\" con soporte 3D LUT, SDI/HDMI loop-out, HDR, formas de onda, vectorscopio y doble plato de batería. Su pantalla de alta resolución lo hace perfecto para supervisión en rodaje.",
+            "price": 17,
+            "image": "/images/product-feelworld-lut-6s.png",
+            "specs": [
+                "Screen: 6\" IPS touchscreen",
+                "Resolution: 1920 x 1080",
+                "Brightness: 2600 nits",
+                "Contrast ratio: 1000:1",
+                "Viewing angle: 160°",
+                "Inputs: HDMI and 3G-SDI",
+                "Outputs: HDMI, 3G-SDI, 8.4V DC out, 3.5mm headphone out",
+                "3D LUT support",
+                "Power: NP-F battery or DC input (7-24V)",
+                "Mounting: 1/4\"-20 threads (bottom and side)",
+                "Weight: 300 g",
+                "Dimensions: 162 x 93 x 29 mm"
+            ],
+            "specs_es": [
+                "Pantalla: 6\" táctil IPS",
+                "Resolución: 1920 x 1080",
+                "Brillo: 2600 nits",
+                "Relación de contraste: 1000:1",
+                "Ángulo de visión: 160°",
+                "Entradas: HDMI y 3G-SDI",
+                "Salidas: HDMI, 3G-SDI, salida DC 8.4V, salida de auriculares 3.5mm",
+                "Soporte 3D LUT",
+                "Alimentación: batería NP-F o entrada DC (7-24V)",
+                "Montaje: roscas 1/4\"-20 (inferior y lateral)",
+                "Peso: 300 g",
+                "Dimensiones: 162 x 93 x 29 mm"
+            ]
+        },
+        {
+            "name": "Atomos Ninja Ultra",
+            "description": "The Atomos Ninja Ultra is a 5\" HDR monitor recorder supporting Dolby Vision, HDMI and SDI inputs up to 8Kp60, ProRes and DNxHR codecs, multitouch controls, and variable ND filtering—perfect for modern field recording.",
+            "description_es": "El Atomos Ninja Ultra es un monitor grabador HDR de 5\" con soporte Dolby Vision, entradas HDMI y SDI hasta 8Kp60, grabación ProRes y DNxHR, control táctil y filtro ND variable para grabaciones de cine.",
+            "price": 35,
+            "image": "/images/product-atomos-ninja-ultra.png",
+            "specs": [
+                "Screen: 5.2\" IPS touchscreen, 1920 x 1080 resolution, 1000 nits brightness",
+                "Inputs/Outputs: HDMI 2.0 (input and output)",
+                "Recording: up to 8K30p in ProRes RAW",
+                "Supported codecs: ProRes RAW, ProRes, DNxHD, H.265",
+                "Operating system: AtomOS 11 with professional monitoring tools",
+                "Storage: compatible with AtomX SSDs or Master Caddy II/III",
+                "Power: NP-F type battery or USB-C PD input (30W)",
+                "Weight: 360 g",
+                "Dimensions: 151 x 91.5 x 31 mm"
+            ],
+            "specs_es": [
+                "Pantalla: 5.2\" táctil IPS, resolución 1920 x 1080, brillo 1000 nits",
+                "Entradas/Salidas: HDMI 2.0 (entrada y salida)",
+                "Grabación: hasta 8K30p en ProRes RAW",
+                "Codecs soportados: ProRes RAW, ProRes, DNxHD, H.265",
+                "Sistema operativo: AtomOS 11 con herramientas de monitorización profesional",
+                "Almacenamiento: compatible con SSD AtomX o Master Caddy II/III",
+                "Alimentación: batería tipo NP-F o entrada USB-C PD (30W)",
+                "Peso: 360 g",
+                "Dimensiones: 151 x 91.5 x 31 mm"
+            ]
+        },
+        {
+            "name": "SmallRig V9S2 SE",
+            "description": "The SmallRig V9S2 SE is a compact V Mount battery (99 Wh) delivering reliable power for long shoots. It offers dual D Tap ports, USB C PD fast charging, and an LED capacity indicator—perfect for powering monitors, lights, and cameras.",
+            "description_es": "El SmallRig V9S2 SE es una batería V Mount de 99 Wh con puertos D Tap, carga rápida USB C PD y pantalla LED de capacidad. Perfecta para alimentar monitores, luces y cámaras durante largas jornadas.",
+            "price": null,
+            "image": "/images/product-smallrig-v9s2-se.png",
+            "specs": [
+                "Battery type: V-Mount (Mini V-Lock)",
+                "Capacity: 99Wh / 6800mAh",
+                "Output ports:",
+                "1x USB-C (PD 65W)",
+                "1x D-Tap",
+                "1x USB-A",
+                "2x DC (5.5mm/2.1mm)",
+                "OLED screen: displays voltage, battery level, and charge status",
+                "Fast charging: supports bidirectional charging via USB-C PD",
+                "Size: compact and lightweight, ideal for camera rigs",
+                "Applications: cinema cameras, external monitors, LED lights, recorders, and wireless transmitters"
+            ],
+            "specs_es": [
+                "Tipo de batería: V-Mount (Mini V-Lock)",
+                "Capacidad: 99Wh / 6800mAh",
+                "Puertos de salida:",
+                "1x USB-C (PD 65W)",
+                "1x D-Tap",
+                "1x USB-A",
+                "2x DC (5.5mm/2.1mm)",
+                "Pantalla OLED: muestra voltaje, nivel de batería y estado de carga",
+                "Carga rápida: compatible con carga bidireccional vía USB-C PD",
+                "Dimensiones: compacta y ligera, ideal para rigs de cámara",
+                "Aplicaciones: cámaras de cine, monitores externos, luces LED, grabadores y transmisores inalámbricos"
+            ]
+        },
+        {
+            "name": "Sennheiser AVX-MKE2 SET",
+            "description": "The Sennheiser AVX-MKE2 SET is a digital wireless microphone system featuring plug and play operation, ultra low noise, and compact bodypack transmitters. It delivers reliable 1.9 GHz transmission and onboard recording for ENG and DSLR workflows.",
+            "description_es": "El Sennheiser AVX MKE2 SET es un sistema de micrófono inalámbrico digital en 1,9 GHz con emparejamiento automático, preamplificador integrado y diseño compacto para ENG y filmaciones DSLR.",
+            "price": 35,
+            "image": "/images/product-sennheiser-avx-mke2-set.png",
+            "specs": [
+                "Type: digital wireless microphone system for video",
+                "Microphone: MKE2 lavalier with omnidirectional pickup pattern",
+                "Transmitter: SK AVX bodypack with built-in rechargeable battery",
+                "Receiver: PlugON digital receiver with rotating XLR connector",
+                "Configuration: automatic (frequency, input and output levels)",
+                "Signal encryption: AES 256",
+                "Auto power on/off via phantom power",
+                "Latency: 19 ms",
+                "Battery life: up to 15 hours (transmitter), up to 4 hours (receiver)",
+                "Frequency range: 1880 - 1930 MHz (license-free in Europe)"
+            ],
+            "specs_es": [
+                "Tipo: sistema de micrófono inalámbrico digital para vídeo",
+                "Micrófono: Lavalier MKE2 con patrón omnidireccional",
+                "Transmisor: bodypack SK AVX con batería recargable integrada",
+                "Receptor: receptor digital PlugON con conector XLR giratorio",
+                "Configuración automática: frecuencia, niveles de entrada y salida",
+                "Cifrado de señal: AES 256",
+                "Encendido/apagado automático mediante phantom",
+                "Latencia: 19 ms",
+                "Autonomía: hasta 15 h (transmisor), hasta 4 h (receptor)",
+                "Rango de frecuencia: 1880 - 1930 MHz (uso libre en Europa)"
+            ]
+        },
+        {
+            "name": "Audio-Technica AT897",
+            "description": "The Audio-Technica AT897 is a short shotgun condenser microphone designed for video and broadcast. It offers excellent off axis rejection, low self noise, and a smooth frequency response—ideal for field recording and interviews.",
+            "description_es": "El Audio Technica AT897 es un micrófono condensador corto cañón diseñado para grabación de vídeo. Ofrece alta directividad, bajo ruido propio y respuesta de frecuencia suave para entrevistas y producción de campo.",
+            "price": 20,
+            "image": "/images/product-audio-technica-at897.png",
+            "specs": [
+                "Type: directional condenser microphone (shotgun)",
+                "Frequency response: 20Hz - 20kHz",
+                "High-pass filter: switchable at 80Hz (12dB/octave)",
+                "Power: 11-52V phantom or 1.5V AA battery",
+                "Length: 279 mm",
+                "Weight: 145 g",
+                "Applications: film, television, interviews, outdoor recording",
+                "Includes: windscreen"
+            ],
+            "specs_es": [
+                "Tipo: micrófono condensador direccional (cañón)",
+                "Respuesta de frecuencia: 20 Hz - 20 kHz",
+                "Filtro paso alto: conmutable a 80 Hz (12 dB/octava)",
+                "Alimentación: 11-52V phantom o pila AA de 1.5V",
+                "Longitud: 279 mm",
+                "Peso: 145 g",
+                "Aplicaciones: cine, televisión, entrevistas, grabaciones exteriores",
+                "Incluye: paravientos"
+            ]
+        },
+        {
+            "name": "Rode Wireless Pro",
+            "description": "The Rode Wireless Pro is a 2 channel digital wireless system operating in the 2.4 GHz band. It features crisp audio, built in recording, timecode sync, and a built in power bank—perfect for professional run and gun and narrative shoots.",
+            "description_es": "El Rode Wireless Pro es un sistema inalámbrico de 2 canales en 2,4 GHz con grabación incorporada, sincronización de código de tiempo y carcasa robusta. Ideal para producciones run and gun y narrativa.",
+            "price": 25,
+            "image": "/images/product-rode-wireless-pro.png",
+            "specs": [
+                "With a range of up to 260 meters line-of-sight, SMPTE timecode support, real-time monitoring, and 32GB of internal memory, this system takes audio capture to a new level of precision and reliability."
+            ],
+            "specs_es": [
+                "Con un alcance de hasta 260 metros en línea de visión, funciones de code time SMPTE, monitorización en tiempo real, y memoria interna de 32 GB, este sistema eleva la captación de audio a un nuevo nivel de precisión y fiabilidad."
+            ]
         }
     ]
 }

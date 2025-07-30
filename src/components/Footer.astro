@@ -97,7 +97,8 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
         {new Date().getFullYear()} /
         <a
           href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
-          class="underline">{t.FOOTER.LEGAL}</a
+          class="underline"
+          data-page-color="white">{t.FOOTER.LEGAL}</a
         >
       </span>
       <div class="col-span-1">

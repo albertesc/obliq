@@ -1,25 +1,11 @@
 {
     "directors": [
-        {
-            "name": "Almudena Soullard"
-        },
-        {
-            "name": "Colectivo Toque"
-        },
-        {
-            "name": "Jorge Villa"
-        },
-        {
-            "name": "Manuel Omonte"
-        },
-        {
-            "name": "Pedro Daslan"
-        },
-        {
-            "name": "Santi Gómez"
-        },
-        {
-            "name": "Shake It!"
-        }
+        "Almudena Soullard",
+        "Colectivo Toque",
+        "Jorge Villa",
+        "Manuel Omonte",
+        "Pedro Daslan",
+        "Santi Gómez",
+        "Shake It!"
     ]
 }
