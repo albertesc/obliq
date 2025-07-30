@@ -81,6 +81,9 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
             {t.CONTACT.FORM.ERRORS}
           </div>
 
+          <div id="product" class="mb-4">
+            Estoy interesado en alquilar: <span></span>
+          </div>
           <Input label={t.CONTACT.FORM.NAME_LABEL} name="name" />
           <Input label={t.CONTACT.FORM.EMAIL_LABEL} name="email" />
           <Input label={t.CONTACT.FORM.COMPANY_LABEL} name="company" />
@@ -188,11 +191,16 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 </section>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const value = params.get("product");
-  console.log("Query param 'product':", value);
-
   document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const value = params.get("product");
+    console.log("Query param 'product':", value);
+    if (value) {
+      const input = document.querySelector("#product") as HTMLDivElement | null;
+      if (input) {
+        input.querySelector("span")!.textContent = value;
+      }
+    }
     const form = document.querySelector(
       "#contact form"
     ) as HTMLFormElement | null;
