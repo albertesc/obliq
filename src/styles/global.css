@@ -3,6 +3,17 @@
 
 @theme {
   --font-sans: 'Montserrat Variable', sans-serif;
+
+  --animate-enlarge: enlarge .5s ease-in-out;
+
+  @keyframes enlarge {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 }
 
 /* Estilos para la transición de página */
