@@ -116,19 +116,15 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
               </svg>
             </div>
 
-            <label
-              for="legal"
-              class="text-sm flex flex-row-reverse gap-1"
-              set:html={t.CONTACT.FORM.TERMS1}
-            >
+            <label for="legal" class="text-sm">
+              {t.CONTACT.FORM.TERMS1}
               <a
                 href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
                 class="underline"
               >
                 {t.FOOTER.LEGAL}
-              </a>
+              </a>. *
             </label>
-            *
           </div>
 
           <div class="flex items-start gap-2 mb-4">
@@ -156,7 +152,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
             </div>
 
             <label for="subscribe" class="text-sm">
-              {t.CONTACT.FORM.TERMS2}
+              <p set:html={t.CONTACT.FORM.TERMS2} />
               <a
                 href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
                 class="underline"
