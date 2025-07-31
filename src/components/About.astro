@@ -43,14 +43,10 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
           class="w-full h-full object-cover aspect-square about-content-image origin-center"
         />
       </div>
-      <p class="text-lg">
-        {t.ABOUT.TEXT1}
-      </p>
+      <p class="text-lg" set:html={t.ABOUT.TEXT1} />
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 items-end">
-      <p class="text-lg">
-        {t.ABOUT.TEXT2}
-      </p>
+      <p class="text-lg" set:html={t.ABOUT.TEXT2} />
       <div class="max-w-[368px] w-full ml-auto">
         <img
           src="/images/about-2.jpg"
