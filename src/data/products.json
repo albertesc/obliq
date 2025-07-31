@@ -166,7 +166,7 @@
             "name": "Tilta TS-T20-B-V",
             "description": "The Tilta TS-T20-B-V is a comprehensive cage system for the Sony FX6, providing 360° protection, multiple 1/4\" and 3/8\" mounting points, dual rod support, and a quick-release NATO rail for follow focus, matte box, and accessory integration.",
             "description_es": "El Tilta TS T20 B V es una jaula completa para Sony FX6 con protección de 360°, múltiples puntos de montaje 1/4\" y 3/8\", soportes de varilla duales y riel NATO para integrar follow focus, matte box y accesorios de forma rápida.",
-            "price": null,
+            "price": 10,
             "image": "/images/product-tilta-ts-t20-b-v.png",
             "specs": [
                 "Multi-Functional Top Plate: Accommodates the FX6’s original top handle and includes dual 15mm LWS rod adapters for mounting accessories above the lens.",
@@ -289,7 +289,7 @@
             "name": "SmallRig V9S2 SE",
             "description": "The SmallRig V9S2 SE is a compact V Mount battery (99 Wh) delivering reliable power for long shoots. It offers dual D Tap ports, USB C PD fast charging, and an LED capacity indicator—perfect for powering monitors, lights, and cameras.",
             "description_es": "El SmallRig V9S2 SE es una batería V Mount de 99 Wh con puertos D Tap, carga rápida USB C PD y pantalla LED de capacidad. Perfecta para alimentar monitores, luces y cámaras durante largas jornadas.",
-            "price": null,
+            "price": 15,
             "image": "/images/product-smallrig-v9s2-se.png",
             "specs": [
                 "Battery type: V-Mount (Mini V-Lock)",
