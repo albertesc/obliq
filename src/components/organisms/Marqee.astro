@@ -21,7 +21,9 @@ const { texts, small } = Astro.props;
           <span
             class:list={[
               "uppercase font-black italic leading-none",
-              small ? "text-[48px] opacity-50" : "text-[80px] md:text-[200px]",
+              small
+                ? "text-[48px] text-[#CCCCCC]"
+                : "text-[80px] md:text-[200px]",
             ]}
           >
             {text}
@@ -34,7 +36,9 @@ const { texts, small } = Astro.props;
             xmlns="http://www.w3.org/2000/svg"
             class:list={[
               "flex-none",
-              small ? "h-10 w-10 opacity-50" : "h-14 md:h-[140px] opacity-100",
+              small
+                ? "h-10 w-10 text-[#CCCCCC]"
+                : "h-14 md:h-[140px] opacity-100",
             ]}
           >
             <path d="M0 139L50.6272 0H92L41.3728 139H0Z" fill="currentColor" />
