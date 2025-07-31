@@ -44,6 +44,8 @@
         "PHONE_LABEL": "Tel. 675 489 980",
         "EMAIL_LABEL": "info@obliqproductions.com",
         "FORM": {
+            "INTERESTED_LABEL": "Estás interesado en alquilar:",
+            "INTERESTED_LABEL2": "Escríbenos para más información.",
             "NAME_LABEL": "Nombre",
             "EMAIL_LABEL": "Correo electrónico *",
             "COMPANY_LABEL": "Empresa",
@@ -54,7 +56,9 @@
                 "LINE_1": "¡Gracias por tu mensaje!",
                 "LINE_2": "Te responderemos lo antes posible."
             },
-            "ERRORS": "Ha ocurrido un error al enviar el formulario."
+            "ERRORS": "Ha ocurrido un error al enviar el formulario.",
+            "TERMS1": "He leído y acepto los",
+            "TERMS2": "Acepto recibir comunicaciones de <strong>OBLIQ</strong>. Confirmo que he leído y aceptado los"
         }
     },
     "MENU": {

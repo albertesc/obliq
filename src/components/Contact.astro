@@ -83,8 +83,9 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
           </div>
 
           <div id="product" class="mb-4 hidden">
-            Estás interesado en alquilar: <strong></strong><br />
-            Escríbenos para más información.
+            {t.CONTACT.FORM.INTERESTED_LABEL}
+            <strong></strong><br />
+            {t.CONTACT.FORM.INTERESTED_LABEL2}
           </div>
           <Input label={t.CONTACT.FORM.NAME_LABEL} name="name" />
           <Input label={t.CONTACT.FORM.EMAIL_LABEL} name="email" />
@@ -115,16 +116,19 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
               </svg>
             </div>
 
-            <label for="legal" class="text-sm">
-              I have read and agree with
+            <label
+              for="legal"
+              class="text-sm flex flex-row-reverse gap-1"
+              set:html={t.CONTACT.FORM.TERMS1}
+            >
               <a
                 href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
                 class="underline"
               >
                 {t.FOOTER.LEGAL}
               </a>
-              . *
             </label>
+            *
           </div>
 
           <div class="flex items-start gap-2 mb-4">
@@ -152,8 +156,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
             </div>
 
             <label for="subscribe" class="text-sm">
-              I agree to receive communications from OBLIQ. I confirm that I
-              have reviewed and accepted the
+              {t.CONTACT.FORM.TERMS2}
               <a
                 href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
                 class="underline"

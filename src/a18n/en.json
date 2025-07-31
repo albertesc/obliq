@@ -44,6 +44,8 @@
         "PHONE_LABEL": "Tel. 675 489 980",
         "EMAIL_LABEL": "info@obliqproductions.com",
         "FORM": {
+            "INTERESTED_LABEL": "You are interested in renting:",
+            "INTERESTED_LABEL2": "Write to us for more information.",
             "NAME_LABEL": "Name",
             "EMAIL_LABEL": "Email address *",
             "COMPANY_LABEL": "Company",
@@ -54,7 +56,9 @@
                 "LINE_1": "Thanks for your message!",
                 "LINE_2": "We’ll get back to you as soon as possible."
             },
-            "ERRORS": "An error occurred while sending the form."
+            "ERRORS": "An error occurred while sending the form.",
+            "TERMS1": "I have read and agree with",
+            "TERMS2": "I agree to receive communications from <strong>OBLIQ</strong>. I confirm that I have reviewed and accepted the"
         }
     },
     "MENU": {
