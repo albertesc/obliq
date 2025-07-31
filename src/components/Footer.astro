@@ -65,8 +65,11 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
           />
           <button
             type="submit"
-            class="bg-primary text-white p-2 rounded hover:bg-primary-dark transition-colors absolute right-0 top-0 h-full"
+            class="bg-primary text-white p-2 rounded hover:bg-primary-dark cursor-pointer absolute right-0 top-0 h-full hover:-right-2 transition-all"
           >
+            <span class="sr-only">
+              {t.FOOTER.NEWSLETTER_SUBMIT}
+            </span>
             <svg
               width="18"
               height="18"
@@ -84,7 +87,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 
       <div class="col-span-1">
         <p
-          class="text-center md:text-right text-[38px] uppercase font-black md:max-w-[18ch] italic md:ml-auto mb-24"
+          class="text-center md:text-right text-[38px] uppercase font-black md:max-w-[12ch] italic md:ml-auto mb-24 leading-none"
         >
           {t.FOOTER.TAGLINE}
         </p>
@@ -92,12 +95,14 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6">
-      <span class="col-span-1 opacity-40 text-center md:text-left">
-        © <Logo size="60" />
-        {new Date().getFullYear()} /
+      <span class="col-span-1 text-center md:text-left">
+        <span class="opacity-40">
+          © <Logo size="60" />
+          {new Date().getFullYear()} /
+        </span>
         <a
           href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
-          class="underline"
+          class="underline opacity-40 hover:opacity-100"
           data-page-color="white">{t.FOOTER.LEGAL}</a
         >
       </span>

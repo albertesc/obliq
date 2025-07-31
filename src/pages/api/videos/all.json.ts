@@ -50,12 +50,22 @@ export async function GET() {
           }
         }
 
+        const match = row["Date"].match(/Date\((\d+),(\d+),(\d+)\)/);
+
+        const date = match
+          && new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+
+        const formattedDate = date.toLocaleDateString('es-ES', {
+          month: "long",
+          year: "numeric",
+        }).replace(" de ", ", ");
+
         return {
           slug,
           title,
           videoId: videoId,
           client: row['Client'] || '',
-          date: row['Date'] || '',
+          date: formattedDate,
           thumbnail,
           image,
         };

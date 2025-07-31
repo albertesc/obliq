@@ -4,6 +4,7 @@ import Textarea from "@/components/atoms/Textarea.astro";
 import { actions } from "astro:actions";
 import { getI18N } from "@/a18n/index.ts";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import Button from "./atoms/Button.astro";
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
@@ -172,20 +173,9 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
           <p>{t.CONTACT.FORM.SUCCESS_MESSAGE.LINE_2}</p>
         </div>
 
-        <button class="text-3xl flex items-center gap-2 cursor-pointer">
+        <Button tag="button" disabled>
           {t.CONTACT.FORM.SUBMIT_BUTTON}
-          <svg
-            width="19"
-            height="18"
-            viewBox="0 0 19 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12.6156 0.839999L18.1756 9.04L12.6156 17.32H9.13563L14.3756 9.04L9.13563 0.839999H12.6156ZM15.1756 7.6V10.52H0.695625V7.6H15.1756Z"
-              fill="white"></path>
-          </svg>
-        </button>
+        </Button>
       </div>
     </div>
   </div>

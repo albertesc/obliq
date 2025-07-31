@@ -68,7 +68,8 @@
     "FOOTER": {
         "NEWSLETTER_TITLE": "Subscribe to our newsletter",
         "NEWSLETTER_PLACEHOLDER": "Here your email",
-        "TAGLINE": "We tilt the gaze, we elevate the story.",
+        "NEWSLETTER_SUBMIT": "Send",
+        "TAGLINE": "We focus your content",
         "LEGAL": "Legal terms",
         "SOCIAL": {
             "INSTAGRAM": "Instagram",
