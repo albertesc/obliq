@@ -121,6 +121,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
               <a
                 href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
                 class="underline"
+                data-page-color="white"
               >
                 {t.FOOTER.LEGAL}
               </a>. *
@@ -134,7 +135,6 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
                 name="subscribe"
                 id="subscribe"
                 class="peer appearance-none w-4.5 h-4.5 border bg-white/20 checked:bg-white checked:text-black text-transparent flex items-center justify-center"
-                required
                 aria-required="true"
               />
               <svg
@@ -156,25 +156,25 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
               <a
                 href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
                 class="underline"
+                data-page-color="white"
               >
                 {t.FOOTER.LEGAL}
-              </a>. *
+              </a>.
             </label>
           </div>
+          <small class="block mb-6">{t.CONTACT.FORM.REQUIRED_NOTE}</small>
+
+          <div
+            class="success hidden rounded mb-4 bg-green-200 text-green-600 p-4 border border-green-400"
+          >
+            <p class="mb-3">{t.CONTACT.FORM.SUCCESS_MESSAGE.LINE_1}</p>
+            <p>{t.CONTACT.FORM.SUCCESS_MESSAGE.LINE_2}</p>
+          </div>
+
+          <Button tag="button" disabled>
+            {t.CONTACT.FORM.SUBMIT_BUTTON}
+          </Button>
         </form>
-
-        <small class="block mb-6">{t.CONTACT.FORM.REQUIRED_NOTE}</small>
-
-        <div
-          class="success hidden rounded mb-4 bg-green-200 text-green-600 p-4 border border-green-400"
-        >
-          <p class="mb-3">{t.CONTACT.FORM.SUCCESS_MESSAGE.LINE_1}</p>
-          <p>{t.CONTACT.FORM.SUCCESS_MESSAGE.LINE_2}</p>
-        </div>
-
-        <Button tag="button" disabled>
-          {t.CONTACT.FORM.SUBMIT_BUTTON}
-        </Button>
       </div>
     </div>
   </div>
@@ -182,35 +182,51 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const params = new URLSearchParams(window.location.search);
-    const value = params.get("product");
-    console.log("Query param 'product':", value);
-    if (value) {
-      const input = document.querySelector("#product") as HTMLDivElement | null;
-      if (input) {
-        input.classList.remove("hidden");
-        input.querySelector("strong")!.textContent = value;
-      }
-    }
-    const form = document.querySelector(
-      "#contact form"
-    ) as HTMLFormElement | null;
+    const form = document.querySelector("#contact form");
+
     if (form) {
-      form.addEventListener("submit", (event) => {
+      const name = form.querySelector(
+        'input[name="name"]'
+      ) as HTMLInputElement | null;
+      const email = form.querySelector(
+        'input[name="email"]'
+      ) as HTMLInputElement | null;
+      const company = form.querySelector(
+        'input[name="company"]'
+      ) as HTMLInputElement | null;
+      const message = form.querySelector(
+        'textarea[name="message"]'
+      ) as HTMLTextAreaElement | null;
+      const legal = form.querySelector(
+        'input[name="legal"]'
+      ) as HTMLInputElement | null;
+      const subscribe = form.querySelector(
+        'input[name="subscribe"]'
+      ) as HTMLInputElement | null;
+      const submitButton = form.querySelector("form button");
+
+      const errorsDiv = form.querySelector(".errors");
+      const successDiv = form.querySelector(".success");
+
+      legal?.addEventListener("change", () => {
+        if (legal.checked) {
+          submitButton?.removeAttribute("disabled");
+        } else {
+          submitButton?.setAttribute("disabled", "true");
+        }
+      });
+
+      form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const email = form.querySelector(
-          'input[name="email"]'
-        ) as HTMLInputElement;
-
-        if (!email.value) {
-          const errorsDiv = form.querySelector(".errors");
+        if (!email?.value || !legal?.checked) {
           if (errorsDiv) {
             errorsDiv.classList.remove("hidden");
             errorsDiv.innerHTML = `
               <p class="mb-3">Rellena todos los campos obligatorios</p>
               <ul class="list-disc pl-5">
-                ${!email.value ? "<li>Email es obligatorio</li>" : ""}
+                ${!email?.value ? "<li>Email es obligatorio</li>" : ""}
+                ${!legal?.checked ? "<li>Acepta los términos legales</li>" : ""}
               </ul>
             `;
             errorsDiv.scrollIntoView({ behavior: "smooth" });
@@ -218,31 +234,56 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
           return;
         }
 
-        const formData = new FormData(form);
-        const action = form.action;
-        const method = form.method;
-        fetch(action, {
-          method: method,
-          body: formData,
-          headers: {
-            "X-Requested-With": "XMLHttpRequest",
-          },
-        }).then((response) => response.json());
+        try {
+          const response = await fetch("/api/send", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: name?.value,
+              email: email?.value,
+              company: company?.value,
+              message: message?.value,
+              legal: legal?.checked,
+              subscribe: subscribe?.checked,
+            }),
+          });
 
-        const successDiv = form.querySelector(".success") as HTMLDivElement;
-        if (successDiv) {
-          successDiv.classList.remove("hidden");
-          setTimeout(() => {
-            successDiv.classList.add("hidden");
-          }, 5000);
+          const contentType = response.headers.get("Content-Type");
+          const data = contentType?.includes("application/json")
+            ? await response.json()
+            : await response.text();
+
+          if (!response.ok) {
+            if (errorsDiv) {
+              errorsDiv.classList.remove("hidden");
+              errorsDiv.innerHTML = `<p class="mb-3">Error al enviar el mensaje.</p><p>${data?.error || data}</p>`;
+              errorsDiv.scrollIntoView({ behavior: "smooth" });
+            }
+            return;
+          }
+
+          if (successDiv) {
+            successDiv.classList.remove("hidden");
+            setTimeout(() => {
+              successDiv.classList.add("hidden");
+            }, 5000);
+          }
+
+          if (errorsDiv) {
+            errorsDiv.classList.add("hidden");
+          }
+
+          (form as HTMLFormElement).reset();
+        } catch (error) {
+          if (errorsDiv) {
+            errorsDiv.classList.remove("hidden");
+            errorsDiv.innerHTML = `<p class="mb-3">Error al conectar con el servidor.</p>`;
+            errorsDiv.scrollIntoView({ behavior: "smooth" });
+          }
+          console.error(error);
         }
-
-        const errorsDiv = form.querySelector(".errors") as HTMLDivElement;
-        if (errorsDiv) {
-          errorsDiv.classList.add("hidden");
-        }
-
-        form.reset();
       });
     }
   });
