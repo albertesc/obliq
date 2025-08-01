@@ -55,8 +55,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "en" });
   id="videoInfo"
   class="fixed bottom-0 bg-black z-20 w-full transform translate-y-full transition-transform duration-300 h-[178px]"
 >
-  <a
-    href="#videoInfo"
+  <span
     class="cursor-pointer absolute bottom-full left-0 px-6 py-4 rotate-180 transform transition-transform duration-300"
     id="showMoreBtn"
   >
@@ -71,7 +70,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "en" });
         d="M0.839999 6.38437L9.04 0.824375L17.32 6.38437L17.32 9.86437L9.04 4.62437L0.839999 9.86437L0.839999 6.38437ZM7.6 3.82437L10.52 3.82437L10.52 18.3044L7.6 18.3044L7.6 3.82437Z"
         fill="white"></path>
     </svg>
-  </a>
+  </span>
 
   <div class="container mx-auto py-14">
     <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
@@ -124,19 +123,23 @@ const t = getI18N({ currentLocale: currentLocale ?? "en" });
     });
   }
 
-  const showMoreBtn = document.getElementById("showMoreBtn");
-  const videoInfo = document.getElementById("videoInfo");
-  const videoSection = document.getElementById("videoSection");
+  function initShowInfoButton() {
+    const showMoreBtn = document.getElementById("showMoreBtn");
+    const videoInfo = document.getElementById("videoInfo");
+    const videoSection = document.getElementById("videoSection");
 
-  showMoreBtn?.addEventListener("click", () => {
-    videoInfo?.classList.toggle("translate-y-full");
-    videoSection?.classList.toggle("-translate-y-[178px]");
-    showMoreBtn?.classList.toggle("rotate-180");
-  });
+    showMoreBtn?.addEventListener("click", () => {
+      videoInfo?.classList.toggle("translate-y-full");
+      videoSection?.classList.toggle("-translate-y-[178px]");
+      showMoreBtn?.classList.toggle("rotate-180");
+    });
+  }
 
+  initShowInfoButton();
   initVideoPlayer();
 
   document.addEventListener("astro:after-swap", () => {
     initVideoPlayer();
+    initShowInfoButton();
   });
 </script>
