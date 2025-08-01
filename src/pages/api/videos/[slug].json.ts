@@ -66,7 +66,7 @@ export const GET: APIRoute = async ({ params }) => {
           slug,
           title,
           videoId: videoId,
-          client: row['Client'] || '',
+          client: row['Director'] || '',
           date: formattedDate,
           thumbnail,
           image,

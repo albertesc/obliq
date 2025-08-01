@@ -64,7 +64,7 @@ export async function GET() {
           slug,
           title,
           videoId: videoId,
-          client: row['Client'] || '',
+          client: row['Director'] || '',
           date: formattedDate,
           thumbnail,
           image,
