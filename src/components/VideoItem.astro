@@ -17,14 +17,17 @@ const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "en" });
 ---
 
-<section class="h-screen relative overflow-hidden">
-  <span
-    onclick="history.back()"
-    class="fixed top-8 right-8 z-50 rotate-45 cursor-pointer animate-enlarge"
-  >
-    <Plus />
-  </span>
+<span
+  onclick="history.back()"
+  class="fixed top-8 right-8 z-50 rotate-45 cursor-pointer animate-enlarge"
+>
+  <Plus />
+</span>
 
+<section
+  class="h-screen relative overflow-hidden transition-transform duration-300"
+  id="videoSection"
+>
   <div class="w-full h-full mb-6">
     <div
       class="relative w-full h-full"
@@ -48,10 +51,13 @@ const t = getI18N({ currentLocale: currentLocale ?? "en" });
   </div>
 </section>
 
-<section id="videoInfo" class="bg-black relative z-20">
+<section
+  id="videoInfo"
+  class="fixed bottom-0 bg-black z-20 w-full transform translate-y-full transition-transform duration-300 h-[178px]"
+>
   <a
     href="#videoInfo"
-    class="cursor-pointer absolute bottom-full left-0 px-6 py-4 rotate-180"
+    class="cursor-pointer absolute bottom-full left-0 px-6 py-4 rotate-180 transform transition-transform duration-300"
     id="showMoreBtn"
   >
     <svg
@@ -117,6 +123,16 @@ const t = getI18N({ currentLocale: currentLocale ?? "en" });
       videoContainer.appendChild(iframe);
     });
   }
+
+  const showMoreBtn = document.getElementById("showMoreBtn");
+  const videoInfo = document.getElementById("videoInfo");
+  const videoSection = document.getElementById("videoSection");
+
+  showMoreBtn?.addEventListener("click", () => {
+    videoInfo?.classList.toggle("translate-y-full");
+    videoSection?.classList.toggle("-translate-y-[178px]");
+    showMoreBtn?.classList.toggle("rotate-180");
+  });
 
   initVideoPlayer();
 
