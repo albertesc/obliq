@@ -19,17 +19,19 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
   class="h-screen relative flex items-center justify-center"
   id="about-video-section"
 >
-  <div class="container mx-auto px-4">
-    <video
-      src="/about.mp4"
-      autoplay
-      loop
-      muted
-      class="w-full aspect-video"
-      id="about-video"
-      aria-label="About Video"
-    >
-    </video>
+  <video
+    src="/about.mp4"
+    autoplay
+    loop
+    muted
+    class="w-full h-full object-cover aspect-video"
+    id="about-video"
+    aria-label="About Video"
+  >
+  </video>
+  <div class="absolute left-0 top-0 w-full h-0 bg-white" id="video-mask-1">
+  </div>
+  <div class="absolute left-0 bottom-0 w-full h-0 bg-white" id="video-mask-2">
   </div>
 </section>
 
