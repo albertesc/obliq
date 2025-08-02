@@ -50,22 +50,24 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div class="col-span-1">
-        <p class="text-3xl md:max-w-[15ch] mb-2.5">
+        <p class="text-3xl md:max-w-[15ch] mb-2.5" id="newsletter-title">
           {t.FOOTER.NEWSLETTER_TITLE}
         </p>
         <form
           class="relative flex flex-col gap-2.5 md:max-w-[460px] w-full mb-24"
+          id="newsletter-form"
         >
           <input
             type="email"
-            name="email"
+            name="newsletter-email"
+            id="newsletter-email"
             placeholder={t.FOOTER.NEWSLETTER_PLACEHOLDER}
             class="py-2 border-b border-gray-300 focus:outline-none"
             required
           />
           <button
-            type="submit"
             class="bg-primary text-white p-2 rounded hover:bg-primary-dark cursor-pointer absolute right-0 top-0 h-full hover:-right-2 transition-all"
+            id="newsletter-submit"
           >
             <span class="sr-only">
               {t.FOOTER.NEWSLETTER_SUBMIT}
@@ -83,6 +85,16 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
             </svg>
           </button>
         </form>
+        <div id="newsletter-error" class="hidden text-red-500 mb-2 text-sm">
+          <p>{t.FOOTER.NEWSLETTER_ERROR}</p>
+        </div>
+        <div id="newsletter-success" class="hidden mb-6">
+          <h3 class="text-lg font-bold mb-2">
+            {t.FOOTER.NEWSLETTER_SUCCESS_TITLE}
+          </h3>
+          <p class="mb-1">{t.FOOTER.NEWSLETTER_SUCCESS_TEXT}</p>
+          <p>{t.FOOTER.NEWSLETTER_SUCCESS_TEXT2}</p>
+        </div>
       </div>
 
       <div class="col-span-1">
@@ -141,3 +153,49 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
     </div>
   </div>
 </footer>
+
+<script>
+  import { getI18N } from "@/a18n/index.ts";
+
+  const currentLocale = navigator.language || navigator.languages[0];
+  const t = getI18N({ currentLocale: currentLocale ?? "es" });
+
+  const emailNewsletter = document.querySelector(
+    'input[name="newsletter-email"]'
+  ) as HTMLInputElement;
+  const newsletterForm = document.getElementById(
+    "newsletter-form"
+  ) as HTMLFormElement;
+
+  newsletterForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!emailNewsletter.value) {
+      alert("Por favor, ingresa tu email.");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ emailNewsletter: emailNewsletter.value }),
+      });
+
+      if (!response.ok) {
+        document.getElementById("newsletter-error")?.classList.remove("hidden");
+        return;
+      }
+      document.getElementById("newsletter-success")?.classList.remove("hidden");
+      document.getElementById("newsletter-title")?.classList.add("hidden");
+      document.getElementById("newsletter-error")?.classList.add("hidden");
+      newsletterForm?.classList.add("hidden");
+      emailNewsletter.value = "";
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      document.getElementById("newsletter-error")?.classList.remove("hidden");
+    }
+  });
+</script>

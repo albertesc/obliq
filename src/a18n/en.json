@@ -58,7 +58,9 @@
             },
             "ERRORS": "An error occurred while sending the form.",
             "TERMS1": "I have read and agree with",
-            "TERMS2": "I agree to receive communications from <strong>OBLIQ</strong>. I confirm that I have reviewed and accepted the"
+            "TERMS2": "I agree to receive communications from <strong>OBLIQ</strong>. I confirm that I have reviewed and accepted the",
+            "EMAIL_REQUIRED": "Email is required",
+            "LEGAL_REQUIRED": "Please accept the legal terms"
         }
     },
     "MENU": {
@@ -73,6 +75,10 @@
         "NEWSLETTER_TITLE": "Subscribe to our newsletter",
         "NEWSLETTER_PLACEHOLDER": "Here your email",
         "NEWSLETTER_SUBMIT": "Send",
+        "NEWSLETTER_SUCCESS_TITLE": "Thank you for subscribing to our newsletter.",
+        "NEWSLETTER_SUCCESS_TEXT": "We have successfully received your email address.",
+        "NEWSLETTER_SUCCESS_TEXT2": "From now on, you will receive our regular communications with relevant updates, news, and curated content. If you ever wish to unsubscribe, you can do so using the link provided in each email.",
+        "NEWSLETTER_ERROR": "Error subscribing. Please try again later.",
         "TAGLINE": "We focus your content",
         "LEGAL": "Legal terms",
         "SOCIAL": {

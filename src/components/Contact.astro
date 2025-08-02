@@ -181,6 +181,11 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 </section>
 
 <script>
+  import { getI18N } from "@/a18n/index.ts";
+
+  const currentLocale = navigator.language || navigator.languages[0];
+  const t = getI18N({ currentLocale: currentLocale ?? "es" });
+
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("#contact form");
 
@@ -220,17 +225,15 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
         event.preventDefault();
 
         if (!email?.value || !legal?.checked) {
-          if (errorsDiv) {
-            errorsDiv.classList.remove("hidden");
-            errorsDiv.innerHTML = `
+          errorsDiv?.classList.remove("hidden");
+          errorsDiv!.innerHTML = `
               <p class="mb-3">Rellena todos los campos obligatorios</p>
               <ul class="list-disc pl-5">
-                ${!email?.value ? "<li>Email es obligatorio</li>" : ""}
-                ${!legal?.checked ? "<li>Acepta los términos legales</li>" : ""}
+                ${!email?.value ? `<li>${t.CONTACT.FORM.EMAIL_REQUIRED}</li>` : ""}
+                ${!legal?.checked ? `<li>${t.CONTACT.FORM.LEGAL_REQUIRED}</li>` : ""}
               </ul>
             `;
-            errorsDiv.scrollIntoView({ behavior: "smooth" });
-          }
+          errorsDiv?.scrollIntoView({ behavior: "smooth" });
           return;
         }
 
@@ -256,33 +259,23 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
             : await response.text();
 
           if (!response.ok) {
-            if (errorsDiv) {
-              errorsDiv.classList.remove("hidden");
-              errorsDiv.innerHTML = `<p class="mb-3">Error al enviar el mensaje.</p><p>${data?.error || data}</p>`;
-              errorsDiv.scrollIntoView({ behavior: "smooth" });
-            }
+            errorsDiv?.classList.remove("hidden");
+            errorsDiv!.innerHTML = `<p class="mb-3">${t.CONTACT.FORM.ERRORS}</p><p>${data?.error || data}</p>`;
+            errorsDiv?.scrollIntoView({ behavior: "smooth" });
             return;
           }
 
-          if (successDiv) {
-            successDiv.classList.remove("hidden");
-            setTimeout(() => {
-              successDiv.classList.add("hidden");
-            }, 5000);
-          }
+          successDiv?.classList.remove("hidden");
+          setTimeout(() => {
+            successDiv?.classList.add("hidden");
+          }, 5000);
 
-          if (errorsDiv) {
-            errorsDiv.classList.add("hidden");
-          }
-
+          errorsDiv?.classList.add("hidden");
           (form as HTMLFormElement).reset();
         } catch (error) {
-          if (errorsDiv) {
-            errorsDiv.classList.remove("hidden");
-            errorsDiv.innerHTML = `<p class="mb-3">Error al conectar con el servidor.</p>`;
-            errorsDiv.scrollIntoView({ behavior: "smooth" });
-          }
-          console.error(error);
+          errorsDiv?.classList.remove("hidden");
+          errorsDiv!.innerHTML = `<p class="mb-3">${t.CONTACT.FORM.ERRORS}</p>`;
+          errorsDiv?.scrollIntoView({ behavior: "smooth" });
         }
       });
     }
