@@ -21,6 +21,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 </Layout>
 
 <script>
+  import { toCodes } from "astro:i18n";
   import { gsap } from "gsap";
   import { ScrollTrigger, SplitText } from "gsap/all";
   gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -48,25 +49,52 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 
   const video = document.getElementById("about-video");
   const videoSection = document.getElementById("about-video-section");
+  const videoMask1 = document.getElementById("video-mask-1");
+  const videoMask2 = document.getElementById("video-mask-2");
 
-  const tl = gsap
+  gsap.set(video, {
+    width: "40dvw",
+    height: "40dvh",
+    transformOrigin: "center center",
+  });
+
+  const tlVideoZoom = gsap
     .timeline()
     .to(video, {
-      scale: 3,
-      duration: 5,
-      delay: -1,
+      width: "100dvw",
+      height: "100dvh",
+      duration: 8,
     })
     .to(video, {
-      scale: 1,
+      width: "100dvw",
+      height: "100dvh",
       duration: 5,
-    });
+    })
+    .to(videoMask1, {
+      height: "50%",
+      duration: 5,
+    })
+    .to(
+      videoMask2,
+      {
+        height: "50%",
+        duration: 5,
+      },
+      "<"
+    );
 
   ScrollTrigger.create({
-    animation: tl,
+    animation: tlVideoZoom,
+    trigger: videoSection,
+    start: "top 75%",
+    end: "bottom top",
+    scrub: 0.5,
+  });
+
+  ScrollTrigger.create({
     trigger: videoSection,
     start: "top top",
-    end: "+=2000",
-    scrub: 0.5,
+    end: "bottom top",
     pin: true,
     pinSpacing: true,
   });
