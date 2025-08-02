@@ -89,18 +89,17 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
         {
           scaleY: 2,
           skewX: -20,
+          y: -100,
           duration: 1,
         },
         "<"
       )
       .to(image, {
-        skewX: 0,
-        scaleY: 1,
-        y: 0,
+        y: -500,
         duration: 1,
       });
 
-    masterTl.add(singleTl, index * 0.8);
+    masterTl.add(singleTl, index * 0.5);
   });
 
   ScrollTrigger.create({
