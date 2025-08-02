@@ -1,4 +1,6 @@
-export async function GET() {
+import type { APIRoute } from 'astro';
+
+export const GET: APIRoute = async () => {
   const sheetUrl =
     'https://docs.google.com/spreadsheets/d/1h0sY3oynVmePCZi8K1h-Ct-0nZPwAmecMHfVzHTaHmc/gviz/tq?tqx=out:json';
 
@@ -23,19 +25,47 @@ export async function GET() {
       )
     );
 
-    const uniqueDirectors = new Set(rows.map((row: any) => {
-      return row['Director'] || '';
-    }));
+    const directorMap = new Map();
 
-    return new Response(JSON.stringify({ directors: Array.from(uniqueDirectors) }), {
+    for (const row of rows) {
+      const director = row['Director'];
+      const videoUrl = row['Url'] || '';
+
+      if (!director || directorMap.has(director)) continue;
+
+      const videoIdMatch = videoUrl.match(/(?:vimeo\.com\/(?:video\/)?|^)(\d+)/);
+      const videoId = videoIdMatch?.[1];
+
+      let thumbnail = '';
+
+      if (videoId) {
+        try {
+          const vimeoRes = await fetch(`https://vimeo.com/api/v2/video/${videoId}.json`);
+          const vimeoData = await vimeoRes.json();
+          thumbnail = vimeoData[0]?.thumbnail_large || '';
+        } catch (err) {
+          console.warn(`No se pudo obtener thumbnail de Vimeo para el video ID: ${videoId}`);
+        }
+      }
+
+      directorMap.set(director, {
+        name: director,
+        thumbnail,
+      });
+    }
+
+    const result = {
+      directors: Array.from(directorMap.values()),
+    };
+
+    return new Response(JSON.stringify(result), {
       headers: { 'Content-Type': 'application/json' },
     });
-  } catch (error) {
-    const errorMessage =
-      error instanceof Error ? error.message : String(error);
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
     return new Response(
-      JSON.stringify({ error: 'Error al procesar los datos del Google Sheets', details: errorMessage }),
+      JSON.stringify({ error: 'Error al procesar los datos', details: message }),
       { status: 500 }
     );
   }
-}
+};
