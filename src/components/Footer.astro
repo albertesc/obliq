@@ -54,7 +54,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
           {t.FOOTER.NEWSLETTER_TITLE}
         </p>
         <form
-          class="relative flex flex-col gap-2.5 md:max-w-[460px] w-full mb-24"
+          class="relative flex flex-col gap-2.5 md:max-w-[460px] w-full mb-6 md:mb-24"
           id="newsletter-form"
         >
           <input
@@ -99,7 +99,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 
       <div class="col-span-1">
         <p
-          class="text-center md:text-right text-[38px] uppercase font-black md:max-w-[12ch] italic md:ml-auto mb-24 leading-none"
+          class="md:text-right text-[38px] uppercase font-black md:max-w-[12ch] italic md:ml-auto mb-6 md:mb-24 leading-none"
         >
           {t.FOOTER.TAGLINE}
         </p>
@@ -107,7 +107,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6">
-      <span class="col-span-1 text-center md:text-left">
+      <span class="col-span-1 order-2 md:order-1">
         <span class="opacity-40">
           © <Logo size="60" />
           {new Date().getFullYear()} /
@@ -118,8 +118,8 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
           data-page-color="white">{t.FOOTER.LEGAL}</a
         >
       </span>
-      <div class="col-span-1">
-        <ul class="flex flex-wrap gap-6 justify-center md:justify-end">
+      <div class="col-span-1 order-1 md:order-2">
+        <ul class="flex flex-wrap gap-x-6 md:justify-end">
           <li>
             <a
               href="https://www.instagram.com/obliqproductions/"

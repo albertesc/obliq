@@ -21,10 +21,11 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 </Layout>
 
 <script>
-  import { toCodes } from "astro:i18n";
   import { gsap } from "gsap";
   import { ScrollTrigger, SplitText } from "gsap/all";
   gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
   const aboutText = document.getElementById("about-text");
 
@@ -109,25 +110,25 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
 
     singleTl
       .from(image, {
-        y: 300,
-        duration: 1,
+        y: !isMobile ? 300 : 0,
+        duration: !isMobile ? 1 : 2,
       })
       .to(
         image,
         {
-          scaleY: 2,
+          scaleY: !isMobile ? 2 : 1,
           skewX: -20,
-          y: -100,
-          duration: 1,
+          y: !isMobile ? -100 : 0,
+          duration: !isMobile ? 1 : 2,
         },
         "<"
       )
       .to(image, {
-        y: -500,
-        duration: 1,
+        y: !isMobile ? -500 : 0,
+        duration: !isMobile ? 1 : 2,
       });
 
-    masterTl.add(singleTl, index * 0.5);
+    masterTl.add(singleTl, index * 0.6);
   });
 
   ScrollTrigger.create({

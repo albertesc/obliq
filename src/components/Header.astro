@@ -4,6 +4,7 @@ export interface Props {
 }
 import Menu from "@/components/organisms/Menu.astro";
 import { getI18N } from "@/a18n/index.ts";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
@@ -21,33 +22,34 @@ const isCurrentLink = (href: string) =>
   role="banner"
 >
   <div
-    class="container mx-auto grid grid-cols-[1fr_auto_1fr] gap-3 items-center h-full px-4"
+    class="container mx-auto flex justify-between md:grid md:grid-cols-[1fr_auto_1fr] gap-3 items-center h-full px-4"
   >
-    <span>
+    <span class="hidden md:block">
       <a
-        href="/"
+        href={getRelativeLocaleUrl(currentLocale ?? "es", "/")}
         class:list={[
           "hover:text-primary text-xl md:text-base uppercase",
-          isCurrentLink("/") && "font-bold italic",
+          isCurrentLink(getRelativeLocaleUrl(currentLocale ?? "es", "/")) &&
+            "font-bold italic",
         ]}
       >
         {t.MENU.WORK}
       </a>
     </span>
 
-    <a href="/" class="logo mx-auto" aria-label={t.GLOBAL.OWNER}>
+    <a href="/" class="logo md:mx-auto" aria-label={t.GLOBAL.OWNER}>
       {
         pageColor === "white" ? (
           <img
             src="/logo.svg"
             alt={`Logotipo de ${t.GLOBAL.OWNER}`}
-            class="w-32"
+            class="w-32 md:-translate-x-11"
           />
         ) : (
           <img
             src="/logo.gif"
             alt={`Logotipo de ${t.GLOBAL.OWNER}`}
-            class="w-56"
+            class="w-56 -translate-x-11"
           />
         )
       }

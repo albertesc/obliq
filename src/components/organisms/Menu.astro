@@ -30,8 +30,9 @@ const isCurrentLink = (href: string) => {
   return currentPath === href || currentPath.startsWith(href + "/");
 };
 const activeLinkClass =
-  "hover:text-primary text-xl md:text-base uppercase text-primary font-bold italic";
-const LinkClass = "hover:text-primary text-xl md:text-base uppercase";
+  "hover:text-primary text-2xl md:text-base uppercase text-primary font-bold italic text-black md:text-inherit";
+const LinkClass =
+  "hover:text-primary text-2xl md:text-base uppercase text-black md:text-inherit";
 ---
 
 <div
@@ -41,8 +42,20 @@ const LinkClass = "hover:text-primary text-xl md:text-base uppercase";
   <nav area-label="Navegación principal" class="h-full">
     <ul
       role="menu"
-      class="flex flex-col gap-4 h-full md:flex-row md:justify-end md:gap-12 md:items-center"
+      class="flex flex-col gap-6 h-full md:flex-row md:justify-end md:gap-12 md:items-center"
     >
+      <li role="none" class="md:hidden">
+        <a
+          href={getRelativeLocaleUrl(currentLocale ?? "es", "/")}
+          class:list={isCurrentLink(
+            getRelativeLocaleUrl(currentLocale ?? "es", "/")
+          )
+            ? activeLinkClass
+            : LinkClass}
+        >
+          {t.MENU.WORK}
+        </a>
+      </li>
       {
         menuLinks.map((link) => (
           <li role="none">
