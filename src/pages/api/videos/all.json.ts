@@ -50,22 +50,25 @@ export async function GET() {
           }
         }
 
-        const match = row["Date"].match(/Date\((\d+),(\d+),(\d+)\)/);
+        let formattedDate = '';
 
-        const date = match
-          && new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
-
-        const formattedDate = date.toLocaleDateString('es-ES', {
-          month: "long",
-          year: "numeric",
-        }).replace(" de ", ", ");
+        if (row["Date"]) {
+          const match = row["Date"].match(/Date\((\d+),(\d+),(\d+)\)/);
+          if (match) {
+            const date = new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+            formattedDate = date.toLocaleDateString('es-ES', {
+              month: "long",
+              year: "numeric",
+            }).replace(" de ", ", ");
+          }
+        }
 
         return {
           slug,
           title,
           videoId: videoId,
           client: row['Director'] || '',
-          date: formattedDate,
+          date: formattedDate || '',
           thumbnail,
           image,
         };
