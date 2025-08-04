@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async () => {
   const sheetUrl =
-    'https://docs.google.com/spreadsheets/d/1h0sY3oynVmePCZi8K1h-Ct-0nZPwAmecMHfVzHTaHmc/gviz/tq?tqx=out:json';
+    'https://docs.google.com/spreadsheets/d/1Zs1gQICeGx5C6lE8eAa6pZfuQNdO1WyrvqBE6cFJMQg/gviz/tq?tqx=out:json';
 
   const res = await fetch(sheetUrl);
   const text = await res.text();
