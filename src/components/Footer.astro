@@ -193,6 +193,12 @@ const t = getI18N({ currentLocale: currentLocale ?? "es" });
       document.getElementById("newsletter-error")?.classList.add("hidden");
       newsletterForm?.classList.add("hidden");
       emailNewsletter.value = "";
+
+      setTimeout(() => {
+        document.getElementById("newsletter-success")?.classList.add("hidden");
+        document.getElementById("newsletter-title")?.classList.remove("hidden");
+        newsletterForm?.classList.remove("hidden");
+      }, 3000);
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
       document.getElementById("newsletter-error")?.classList.remove("hidden");
