@@ -1,0 +1,18 @@
+---
+export interface Props {
+  enterColor?: string;
+}
+const { enterColor } = Astro.props;
+---
+
+<div
+  id="transition-mask"
+  class:list={[
+    "fixed",
+    "inset-0",
+    "z-[999]",
+    "pointer-events-none",
+    enterColor === "white" ? "bg-white" : "bg-black",
+  ]}
+>
+</div>

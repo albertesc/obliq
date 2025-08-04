@@ -1,12 +1,18 @@
 ---
-import Input from "./atoms/Input.astro";
-import Textarea from "./atoms/Textarea.astro";
+import Input from "@/components/atoms/Input.astro";
+import Textarea from "@/components/atoms/Textarea.astro";
 import { actions } from "astro:actions";
+import { getI18N } from "@/a18n/index.ts";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Button from "./atoms/Button.astro";
+
+const { currentLocale } = Astro;
+const t = getI18N({ currentLocale: currentLocale ?? "es" });
 ---
 
 <section
   id="contact"
-  class="bg-black pt-10 z-10 relative"
+  class="bg-black pt-10 pb-20 z-10 relative"
   role="region"
   aria-labelledby="contact-heading"
   style="scroll-margin-top: 80px"
@@ -14,7 +20,8 @@ import { actions } from "astro:actions";
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
       <div class="col-span-12 lg:col-span-5">
-        <h2 class="text-5xl mb-8">Let’s talk!</h2>
+        <h2 class="text-5xl mb-8">{t.CONTACT.TITLE}</h2>
+
         <a href="tel:675489980" class="flex items-center gap-2 mt-4">
           <svg
             width="17"
@@ -38,8 +45,9 @@ import { actions } from "astro:actions";
               stroke-linecap="round"
               stroke-linejoin="round"></path>
           </svg>
-          Tel. 675 489 980
+          {t.CONTACT.PHONE_LABEL}
         </a>
+
         <a
           href="mailto:info@obliqproductions.com"
           class="flex items-center gap-2 mt-4"
@@ -62,39 +70,110 @@ import { actions } from "astro:actions";
               stroke-linecap="round"
               stroke-linejoin="round"></path>
           </svg>
-          info@obliqproductions.com
+          {t.CONTACT.EMAIL_LABEL}
         </a>
       </div>
+
       <div class="col-span-12 lg:col-span-6 lg:col-start-7">
         <form method="POST" action={actions.send}>
           <div
             class="errors rounded mb-4 bg-red-200 text-red-600 p-4 hidden border border-red-400"
           >
+            {t.CONTACT.FORM.ERRORS}
           </div>
-          <Input label="Nombre" name="name" />
-          <Input label="Correo electrónico*" name="email" />
-          <Textarea label="Mensaje" name="message" />
-          <small class="block mb-6">* Campos obligatorios</small>
+
+          <div id="product" class="mb-4 hidden">
+            {t.CONTACT.FORM.INTERESTED_LABEL}
+            <strong></strong><br />
+            {t.CONTACT.FORM.INTERESTED_LABEL2}
+          </div>
+          <Input label={t.CONTACT.FORM.NAME_LABEL} name="name" />
+          <Input label={t.CONTACT.FORM.EMAIL_LABEL} name="email" />
+          <Input label={t.CONTACT.FORM.COMPANY_LABEL} name="company" />
+          <Textarea label={t.CONTACT.FORM.MESSAGE_LABEL} name="message" />
+
+          <div class="flex items-start gap-2 mb-4 mt-4">
+            <div class="flex-none relative">
+              <input
+                type="checkbox"
+                name="legal"
+                id="legal"
+                class="peer appearance-none w-4.5 h-4.5 border bg-white/20 checked:bg-white checked:text-black text-transparent flex items-center justify-center"
+                required
+                aria-required="true"
+              />
+              <svg
+                class="w-4.5 h-4.5 absolute top-0 left-0 pointer-events-none text-black opacity-0 peer-checked:opacity-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+
+            <label for="legal" class="text-sm">
+              {t.CONTACT.FORM.TERMS1}
+              <a
+                href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
+                class="underline"
+                data-page-color="white"
+              >
+                {t.FOOTER.LEGAL}
+              </a>. *
+            </label>
+          </div>
+
+          <div class="flex items-start gap-2 mb-4">
+            <div class="flex-none relative">
+              <input
+                type="checkbox"
+                name="subscribe"
+                id="subscribe"
+                class="peer appearance-none w-4.5 h-4.5 border bg-white/20 checked:bg-white checked:text-black text-transparent flex items-center justify-center"
+                aria-required="true"
+              />
+              <svg
+                class="w-4.5 h-4.5 absolute top-0 left-0 pointer-events-none text-black opacity-0 peer-checked:opacity-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+
+            <label for="subscribe" class="text-sm">
+              <p set:html={t.CONTACT.FORM.TERMS2} />
+              <a
+                href={getRelativeLocaleUrl(currentLocale ?? "es", "/legal")}
+                class="underline"
+                data-page-color="white"
+              >
+                {t.FOOTER.LEGAL}
+              </a>.
+            </label>
+          </div>
+          <small class="block mb-6">{t.CONTACT.FORM.REQUIRED_NOTE}</small>
+
           <div
             class="success hidden rounded mb-4 bg-green-200 text-green-600 p-4 border border-green-400"
           >
-            <p class="mb-3">¡Gracias por tu mensaje!</p>
-            <p>Te responderemos lo antes posible.</p>
+            <p class="mb-3">{t.CONTACT.FORM.SUCCESS_MESSAGE.LINE_1}</p>
+            <p>{t.CONTACT.FORM.SUCCESS_MESSAGE.LINE_2}</p>
           </div>
-          <button class="text-3xl flex items-center gap-2 cursor-pointer">
-            Enviar
-            <svg
-              width="19"
-              height="18"
-              viewBox="0 0 19 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.6156 0.839999L18.1756 9.04L12.6156 17.32H9.13563L14.3756 9.04L9.13563 0.839999H12.6156ZM15.1756 7.6V10.52H0.695625V7.6H15.1756Z"
-                fill="white"></path>
-            </svg>
-          </button>
+
+          <Button tag="button" disabled>
+            {t.CONTACT.FORM.SUBMIT_BUTTON}
+          </Button>
         </form>
       </div>
     </div>
@@ -102,58 +181,113 @@ import { actions } from "astro:actions";
 </section>
 
 <script>
+  import { getI18N } from "@/a18n/index.ts";
+
+  const currentLocale = navigator.language || navigator.languages[0];
+  const t = getI18N({ currentLocale: currentLocale ?? "es" });
+
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector(
-      "#contact form"
-    ) as HTMLFormElement | null;
+    const params = new URLSearchParams(window.location.search);
+    const value = params.get("product");
+    console.log("Query param 'product':", value);
+    if (value) {
+      const input = document.querySelector("#product") as HTMLDivElement | null;
+      if (input) {
+        input.classList.remove("hidden");
+        input.querySelector("strong")!.textContent = value;
+      }
+    }
+    const form = document.querySelector("#contact form");
+
     if (form) {
-      form.addEventListener("submit", (event) => {
+      const name = form.querySelector(
+        'input[name="name"]'
+      ) as HTMLInputElement | null;
+      const email = form.querySelector(
+        'input[name="email"]'
+      ) as HTMLInputElement | null;
+      const company = form.querySelector(
+        'input[name="company"]'
+      ) as HTMLInputElement | null;
+      const message = form.querySelector(
+        'textarea[name="message"]'
+      ) as HTMLTextAreaElement | null;
+      const legal = form.querySelector(
+        'input[name="legal"]'
+      ) as HTMLInputElement | null;
+      const subscribe = form.querySelector(
+        'input[name="subscribe"]'
+      ) as HTMLInputElement | null;
+      const submitButton = form.querySelector("form button");
+
+      const errorsDiv = form.querySelector(".errors");
+      const successDiv = form.querySelector(".success");
+
+      legal?.addEventListener("change", () => {
+        if (legal.checked) {
+          submitButton?.removeAttribute("disabled");
+        } else {
+          submitButton?.setAttribute("disabled", "true");
+        }
+      });
+
+      form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const email = form.querySelector(
-          'input[name="email"]'
-        ) as HTMLInputElement;
-
-        if (!email.value) {
-          const errorsDiv = form.querySelector(".errors");
-          if (errorsDiv) {
-            errorsDiv.classList.remove("hidden");
-            errorsDiv.innerHTML = `
-              <p class="mb-3">Rellena todos los campos obligatorios</p>
+        if (!email?.value || !legal?.checked) {
+          errorsDiv?.classList.remove("hidden");
+          errorsDiv!.innerHTML = `
+              <p class="mb-3">${t.CONTACT.FORM.ERRORS}</p>
               <ul class="list-disc pl-5">
-                ${!email.value ? "<li>Email es obligatorio</li>" : ""}
+                ${!email?.value ? `<li>${t.CONTACT.FORM.EMAIL_REQUIRED}</li>` : ""}
+                ${!legal?.checked ? `<li>${t.CONTACT.FORM.LEGAL_REQUIRED}</li>` : ""}
               </ul>
             `;
-            errorsDiv.scrollIntoView({ behavior: "smooth" });
-          }
+          errorsDiv?.scrollIntoView({ behavior: "smooth" });
           return;
         }
 
-        const formData = new FormData(form);
-        const action = form.action;
-        const method = form.method;
-        fetch(action, {
-          method: method,
-          body: formData,
-          headers: {
-            "X-Requested-With": "XMLHttpRequest",
-          },
-        }).then((response) => response.json());
+        try {
+          const response = await fetch("/api/send", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: name?.value,
+              email: email?.value,
+              company: company?.value,
+              message: message?.value,
+              product: value,
+              legal: legal?.checked,
+              subscribe: subscribe?.checked,
+            }),
+          });
 
-        const successDiv = form.querySelector(".success") as HTMLDivElement;
-        if (successDiv) {
-          successDiv.classList.remove("hidden");
+          const contentType = response.headers.get("Content-Type");
+          const data = contentType?.includes("application/json")
+            ? await response.json()
+            : await response.text();
+
+          if (!response.ok) {
+            errorsDiv?.classList.remove("hidden");
+            errorsDiv!.innerHTML = `<p class="mb-3">${t.CONTACT.FORM.ERRORS}</p><p>${data?.error || data}</p>`;
+            errorsDiv?.scrollIntoView({ behavior: "smooth" });
+            return;
+          }
+
+          successDiv?.classList.remove("hidden");
           setTimeout(() => {
-            successDiv.classList.add("hidden");
+            successDiv?.classList.add("hidden");
           }, 5000);
-        }
 
-        const errorsDiv = form.querySelector(".errors") as HTMLDivElement;
-        if (errorsDiv) {
-          errorsDiv.classList.add("hidden");
+          errorsDiv?.classList.add("hidden");
+          (form as HTMLFormElement).reset();
+        } catch (error) {
+          errorsDiv?.classList.remove("hidden");
+          errorsDiv!.innerHTML = `<p class="mb-3">${t.CONTACT.FORM.ERRORS}</p>`;
+          errorsDiv?.scrollIntoView({ behavior: "smooth" });
         }
-
-        form.reset();
       });
     }
   });

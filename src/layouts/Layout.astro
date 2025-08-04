@@ -1,17 +1,20 @@
 ---
-import Header from "@components/Header.astro";
-import "../styles/global.css";
+import Header from "@/components/Header.astro";
+import "@/styles/global.css";
 import "@fontsource-variable/montserrat";
-import { getI18N } from "@a18n/index.ts";
-import Footer from "@components/Footer.astro";
+import { getI18N } from "@/a18n/index.ts";
+import Footer from "@/components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
+import TransitionMask from "@/components/organisms/TransitionMask.astro";
 
 interface Props {
   title: string;
+  pageColor?: string;
 }
 
 const { currentLocale } = Astro;
 const t = getI18N({ currentLocale: currentLocale ?? "es" });
-const { title } = Astro.props;
+const { title, pageColor } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,13 +22,94 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{t.GLOBAL.TITLE} | {title}</title>
+    <ClientRouter />
   </head>
-  <body class="flex flex-col min-h-screen pt-16 md:pt-20">
-    <Header />
+  <body
+    class:list={[
+      "flex",
+      "flex-col",
+      "min-h-screen",
+      "pt-16",
+      "md:pt-20",
+      "font-medium",
+      pageColor === "white" ? "bg-white text-black" : "bg-black text-white",
+    ]}
+  >
+    <TransitionMask enterColor={pageColor} />
+    <Header pageColor={pageColor} />
     <slot />
     <Footer />
+
+    <script>
+      import gsap from "gsap";
+
+      function initTransitionMask() {
+        const mask = document.getElementById(
+          "transition-mask"
+        ) as HTMLDivElement;
+
+        const slideIn = (pageColor: string) =>
+          new Promise((resolve) => {
+            gsap
+              .timeline()
+              .to(mask, {
+                y: 0,
+                duration: 1,
+                ease: "power2.inOut",
+                onStart: () => mask?.classList.remove("pointer-events-none"),
+              })
+              .to(mask, {
+                duration: 0.5,
+                backgroundColor: pageColor,
+                onComplete: resolve,
+              });
+          });
+
+        const slideOut = () =>
+          new Promise<void>((resolve) => {
+            gsap.to(mask, {
+              y: "-100%",
+              duration: 1,
+              ease: "power2.inOut",
+              onStart: () => mask?.classList.remove("pointer-events-none"),
+            });
+            resolve();
+          });
+
+        document
+          .querySelectorAll("a[href]:not(.link-video)")
+          .forEach((link) => {
+            const anchor = link as HTMLAnchorElement;
+            const url = new URL(anchor.href);
+            const isSameOrigin = location.origin === url.origin;
+            const pageColor = anchor.dataset.pageColor || "black";
+
+            if (!isSameOrigin || anchor.target === "_blank") return;
+
+            anchor.addEventListener("click", async (e) => {
+              e.preventDefault();
+              const href = anchor.href;
+              await slideIn(pageColor);
+              window.location.href = href;
+            });
+          });
+
+        if (
+          location.pathname === "/" ||
+          location.pathname === "/es/" ||
+          location.pathname.startsWith("/video/")
+        ) {
+          mask.style.transform = "translateY(-100%)";
+          return;
+        }
+        slideOut();
+      }
+
+      initTransitionMask();
+      document.addEventListener("astro:after-swap", initTransitionMask);
+    </script>
   </body>
 </html>

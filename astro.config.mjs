@@ -5,13 +5,12 @@ import tailwindcss from '@tailwindcss/vite';
 
 import vercel from '@astrojs/vercel';
 
-// https://astro.build/config
 export default defineConfig({
   output: 'server',
 
   i18n: {
-    locales: ["es"],
-    defaultLocale: "es",
+    locales: ["en", "es"],
+    defaultLocale: "en",
     routing: {
       prefixDefaultLocale: false,
       redirectToDefaultLocale: true,

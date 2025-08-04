@@ -3,14 +3,50 @@
 
 @theme {
   --font-sans: 'Montserrat Variable', sans-serif;
+
+  --animate-enlarge: enlarge .5s ease-in-out;
+
+  @keyframes enlarge {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 }
 
-body {
-  @apply bg-black text-white;
+/* Estilos para la transición de página */
+::view-transition-old(page),
+::view-transition-new(page) {
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation: delay 0s, slide-out-left 0.5s forwards, slide-in-right 0.5s forwards;
 }
 
-html,
-body {
-  overscroll-behavior: none;
-  scroll-behavior: smooth;
+::view-transition-old(page) {
+  animation-name: slide-out-left;
+}
+
+::view-transition-new(page) {
+  animation-name: slide-in-right;
+}
+
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }

@@ -1,0 +1,17 @@
+<svg
+    width="75"
+    height="74"
+    viewBox="0 0 75 74"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <circle
+        cx="37.7305"
+        cy="37"
+        r="36.5"
+        fill="black"
+        fill-opacity="0.15"
+        stroke="white"
+    ></circle>
+    <path d="M36.4405 53.05V23.85H37.9005V53.05H36.4405ZM22.2055 39.18V37.793H52.1355V39.18H22.2055Z" fill="white"></path>
+</svg>

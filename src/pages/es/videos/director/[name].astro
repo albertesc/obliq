@@ -1,0 +1,13 @@
+---
+import VideoLayout from "@/layouts/Video.astro";
+import { getFirstVideoByDirector } from "@/services/videos";
+import VideoItem from "@/components/VideoItem.astro";
+
+const params = Astro.params;
+const name = params.name;
+const video = await getFirstVideoByDirector(name as string);
+---
+
+<VideoLayout title={video.title}>
+  <VideoItem video={video} />
+</VideoLayout>
