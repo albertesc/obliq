@@ -83,7 +83,7 @@ const t = getI18N({ currentLocale: currentLocale ?? "en" });
       <div>
         <span class="text-lg">{t.VIDEOS.DATE}:</span>
         <p class="text-2xl font-extrabold italic uppercase leading-none">
-          {video.date}
+          {video.date || "--"}
         </p>
       </div>
     </div>
