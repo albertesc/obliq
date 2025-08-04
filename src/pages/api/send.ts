@@ -5,7 +5,7 @@ const emailTo = import.meta.env.RESEND_EMAIL_TO
 
 export async function POST({ request }: { request: Request }) {
   try {
-    const { name, email, company, message, legal, subscribe } = await request.json();
+    const { name, email, company, message, legal, subscribe, product } = await request.json();
 
     // Validación básica
     if (!email) {
@@ -28,6 +28,7 @@ export async function POST({ request }: { request: Request }) {
                     <p style="font-size: 16px; color: #555555;">Se ha recibido una nueva solicitud de contacto con los siguientes datos:</p>
 
                     <ul style="font-size: 16px; color: #333333; padding-left: 20px;">
+                        ${product ? `<li><strong>Interesado en alquilar:</strong> ${product}</li>` : ''}
                         <li><strong>Nombre:</strong> ${name}</li>
                         <li><strong>Email:</strong> ${email}</li>
                         <li><strong>Teléfono:</strong> ${company}</li>
