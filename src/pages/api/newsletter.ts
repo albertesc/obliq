@@ -16,7 +16,7 @@ export async function POST({ request }: { request: Request }) {
 
     // Enviar el correo con Resend
     const emailData = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>',
+      from: 'info@obliqproductions.com',
       to: emailTo,
       subject: `📩 Nuevo registro de newsletter`,
       html: `
