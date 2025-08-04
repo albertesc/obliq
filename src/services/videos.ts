@@ -26,7 +26,14 @@ export async function getFirstVideoByDirector(director: string) {
   try {
     const response = await fetch(`${API_URL}videos/all.json`);
     const data = await response.json();
-    const filteredVideos = data.filter((video: any) => video.client === director);
+    const filteredVideos = data.filter((video: any) => video.client.toLowerCase()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .trim() === director.toLowerCase()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .trim());
+    console.log(`Found ${filteredVideos.length} videos for director ${director}`);
     return filteredVideos.length > 0 ? filteredVideos[0] : null;
   } catch (err) {
     console.error(`Error fetching first video for director ${director}:`, err);

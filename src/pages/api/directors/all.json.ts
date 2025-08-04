@@ -28,7 +28,7 @@ export const GET: APIRoute = async () => {
     const directorMap = new Map();
 
     for (const row of rows) {
-      const director = row['Director'];
+      const director = row['Director'].toLowerCase();
       const videoUrl = row['Url'] || '';
 
       if (!director || directorMap.has(director)) continue;
